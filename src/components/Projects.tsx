@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, Github, Sparkles, X, CheckCircle, ChevronDown } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, X, CheckCircle, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { PROJECTS_DATA } from '../data';
 import { Project } from '../types';
 import TiltCard from './TiltCard';
@@ -136,33 +136,35 @@ export default function Projects() {
                           </div>
 
                           {/* Quick Interactive Actions */}
-                          <div className="flex gap-2.5 pt-2">
+                          <div className="flex gap-2 pt-2">
                             <button
                               onClick={() => setSelectedProject(project)}
-                              className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-cyan-950/40 border border-cyan-500/20 text-xs font-semibold text-cyan-400 hover:bg-cyan-950/60 transition-colors cursor-pointer"
+                              className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#16223f] border border-cyan-500/10 text-xs font-semibold text-cyan-400 hover:bg-cyan-950/40 hover:border-cyan-500/30 transition-all cursor-pointer"
                             >
                               <span>Specs Deep-Dive</span>
-                              <Sparkles className="w-3 h-3" />
+                              <Sparkles className="w-3 h-3 text-cyan-400" />
                             </button>
                             
                             <a
                               href={project.liveUrl}
                               target="_blank"
                               rel="noreferrer"
-                              className="p-2 rounded-lg bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white shadow-md shadow-red-500/10 hover:scale-[1.02] transition-all cursor-pointer flex items-center justify-center"
+                              className="group/btn flex items-center justify-center gap-1 px-3 py-2 rounded-lg bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white shadow-md shadow-red-500/10 transition-all cursor-pointer text-xs font-semibold"
                               title="Launch Live App"
                             >
-                              <ExternalLink className="w-4 h-4" />
+                              <ExternalLink className="w-3.5 h-3.5" />
+                              <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                             </a>
                             
                             <a
                               href={project.githubUrl}
                               target="_blank"
                               rel="noreferrer"
-                              className="p-2 rounded-lg border border-white/10 hover:border-cyan-500/30 bg-white/2 hover:bg-cyan-950/10 text-zinc-300 hover:text-cyan-300 transition-colors cursor-pointer flex items-center justify-center"
+                              className="group/btn flex items-center justify-center gap-1 px-3 py-2 rounded-lg border border-white/10 hover:border-cyan-500/30 bg-white/2 hover:bg-cyan-950/10 text-zinc-300 hover:text-cyan-300 transition-all cursor-pointer text-xs font-semibold"
                               title="GitHub Repository"
                             >
-                              <Github className="w-4 h-4" />
+                              <Github className="w-3.5 h-3.5" />
+                              <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                             </a>
                           </div>
                         </motion.div>
@@ -196,26 +198,28 @@ export default function Projects() {
                       <span>Deep-Dive</span>
                       <Sparkles className="w-3 h-3" />
                     </button>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs text-zinc-400 hover:text-red-400 transition-colors flex items-center gap-1 cursor-pointer font-mono"
+                        className="group/btn flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-white/5 bg-white/2 hover:bg-red-500/10 hover:border-red-500/30 text-zinc-400 hover:text-red-400 text-xs font-medium transition-all duration-300"
                         title="Launch Live App"
                       >
                         <ExternalLink className="w-3.5 h-3.5" />
                         <span>Live Demo</span>
+                        <ArrowUpRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform shrink-0" />
                       </a>
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs text-zinc-400 hover:text-white transition-colors flex items-center gap-1 cursor-pointer font-mono"
+                        className="group/btn flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-white/5 bg-white/2 hover:bg-cyan-500/10 hover:border-cyan-500/30 text-zinc-400 hover:text-cyan-400 text-xs font-medium transition-all duration-300"
                         title="GitHub Repository"
                       >
                         <Github className="w-3.5 h-3.5" />
                         <span>GitHub</span>
+                        <ArrowUpRight className="w-3 h-3 opacity-50 group-hover/btn:opacity-100 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform shrink-0" />
                       </a>
                     </div>
                   </div>
@@ -331,20 +335,23 @@ export default function Projects() {
                         href={selectedProject.liveUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-grow flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-sm font-semibold text-white shadow-lg shadow-red-500/25 hover:scale-[1.02] transition-all cursor-pointer"
+                        className="group/modal-btn flex-grow flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-sm font-semibold text-white shadow-lg shadow-red-500/25 hover:scale-[1.01] transition-all cursor-pointer"
                       >
                         <span>Launch Project</span>
                         <ExternalLink className="w-4 h-4" />
+                        <ArrowUpRight className="w-4 h-4 opacity-75 group-hover/modal-btn:translate-x-0.5 group-hover/modal-btn:-translate-y-0.5 transition-transform" />
                       </a>
                       
                       <a
                         href={selectedProject.githubUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center justify-center p-3 rounded-xl border border-white/10 hover:border-cyan-500/50 bg-white/2 hover:bg-cyan-950/20 text-zinc-300 hover:text-cyan-300 transition-colors cursor-pointer"
-                        title="Repository Repository"
+                        className="group/modal-btn flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-white/10 hover:border-cyan-500/50 bg-white/2 hover:bg-cyan-950/20 text-zinc-300 hover:text-cyan-300 transition-all cursor-pointer"
+                        title="GitHub Repository"
                       >
                         <Github className="w-5 h-5" />
+                        <span className="text-sm font-semibold">GitHub</span>
+                        <ArrowUpRight className="w-4 h-4 opacity-50 group-hover/modal-btn:opacity-100 group-hover/modal-btn:translate-x-0.5 group-hover/modal-btn:-translate-y-0.5 transition-transform" />
                       </a>
                     </div>
                   </div>

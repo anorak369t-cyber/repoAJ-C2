@@ -14,6 +14,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
 import BackToTop from './components/BackToTop';
+import ScrollProgressBar from './components/ScrollProgressBar';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +48,9 @@ export default function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className={`min-h-screen bg-[#070b19] text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-300 theme-${theme}`}
           >
+            {/* Slim dynamic scroll progress bar */}
+            <ScrollProgressBar />
+
             {/* Frosted Floating Header with Theme Selector */}
             <Navbar theme={theme} onThemeChange={setTheme} />
 

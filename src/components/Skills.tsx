@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion } from 'motion/react';
-import { Layers, ShieldAlert, Sparkles, Terminal } from 'lucide-react';
+import { Layers, Sparkles, Terminal, Palette, Settings } from 'lucide-react';
 import { SKILLS_DATA } from '../data';
 
 // Custom spring-physics Draggable Skill Chip
@@ -31,12 +31,14 @@ function DraggableSkillChip({ name }: { name: string; key?: string }) {
 export default function Skills() {
   const getCategoryIcon = (title: string) => {
     switch (title.toLowerCase()) {
+      case 'ui/ux design':
+        return <Palette className="w-5 h-5 text-amber-400" />;
       case 'frontend':
         return <Layers className="w-5 h-5 text-cyan-400" />;
       case 'backend':
         return <Terminal className="w-5 h-5 text-sky-400" />;
       default:
-        return <ShieldAlert className="w-5 h-5 text-red-400" />;
+        return <Settings className="w-5 h-5 text-emerald-400" />;
     }
   };
 
@@ -76,12 +78,12 @@ export default function Skills() {
             transition={{ delay: 0.2 }}
             className="text-zinc-500 text-sm max-w-lg mt-2 font-normal leading-relaxed"
           >
-            Interactive technology cells mapping developer expertise. Hover, grab, and toss any chip to experience real-time spring physics.
+            Interactive technology cells mapping developer & UI/UX design expertise. Hover, grab, and toss any chip to experience real-time spring physics.
           </motion.p>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SKILLS_DATA.map((category, catIdx) => (
             <motion.div
               key={category.title}

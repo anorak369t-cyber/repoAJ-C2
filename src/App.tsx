@@ -13,6 +13,7 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
+import BackToTop from './components/BackToTop';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -84,6 +85,9 @@ export default function App() {
 
             {/* Career Assistant Chatbot Floating Widget */}
             <AIAssistant />
+
+            {/* Smooth Floating Back to Top Button */}
+            <BackToTop />
           </motion.div>
         )}
       </AnimatePresence>

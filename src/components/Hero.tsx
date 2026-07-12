@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, ArrowRight, Download, Send, X, FileText } from 'lucide-react';
 import Magnetic from './Magnetic';
 import { HERO_DATA } from '../data';
+import { downloadProfessionalCV } from '../utils/pdfGenerator';
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,50 +38,8 @@ export default function Hero() {
     }
   };
 
-  const handleDownloadMockResume = () => {
-    // Generate a simple print-friendly text or beautiful layout representing Atamba Joel's resume
-    const resumeText = `
-=========================================
-ATAMBA JOEL - FULL-STACK DEVELOPER RESUME
-=========================================
-Uganda | hasty0joel@gmail.com | 2026
-
-EDUCATION
-- A-Level Student, Uganda (2024 - Present)
-  Focused on Mathematics, Physics, and Economics.
-
-EXPERIENCE
-- President, STAHIZA ICT Club (2024 - Present)
-  * Led student developer teams
-  * Built official club website
-  * Organized coding bootcamps for 100+ peers
-
-SELECTED PROJECTS
-- STAHIZA ICT Club Hub: Community hub for student collaborations
-- PMart: Premium ecommerce platform with real-time checkout
-- AI Study Assistant: Revison platform mapping Ugandan curricula
-
-CERTIFICATIONS
-- CS50: Intro to Computer Science (Harvard University)
-- Responsive Web Design (freeCodeCamp)
-- Google AI Essentials (Google)
-- Mastering React & Node.js (Code with Mosh)
-
-TECHNICAL SKILLS
-- TypeScript, JavaScript, React, Next.js, Tailwind CSS
-- Node.js, Express, PostgreSQL, Supabase, REST APIs
-- Git, GitHub, VS Code, Figma, Vercel
-=========================================
-`;
-    const blob = new Blob([resumeText], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = "Atamba_Joel_Resume.txt";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+  const handleDownloadCV = () => {
+    downloadProfessionalCV();
   };
 
   // Stagger configurations
@@ -308,8 +267,8 @@ TECHNICAL SKILLS
                     <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
                   </h3>
                   <p className="mt-2 text-zinc-400 text-xs sm:text-sm font-normal leading-relaxed">
-                    Would you like to initiate the download of **Atamba Joel's** professional resume? 
-                    This plaintext document details his skills, credentials, club presidency experience, and core full-stack stack.
+                    Would you like to initiate the download of **Atamba Joel's** professional CV? 
+                    This well-structured, vector-perfect PDF document details his technical skills, certification credentials, Standard High School Zzana ICT Club Presidency, and core full-stack project stack.
                   </p>
                 </div>
               </div>
@@ -324,7 +283,7 @@ TECHNICAL SKILLS
                 </button>
                 <button
                   onClick={() => {
-                    handleDownloadMockResume();
+                    handleDownloadCV();
                     setShowConfirmModal(false);
                   }}
                   className="flex items-center gap-1.5 px-5 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-400 hover:to-red-400 text-xs font-bold text-black hover:scale-[1.02] transition-all cursor-pointer shadow-lg shadow-amber-500/10"

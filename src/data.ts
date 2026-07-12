@@ -49,19 +49,67 @@ export const PROJECTS_DATA: Project[] = [
     ]
   },
   {
-    id: "pmart",
-    name: "PMart",
-    description: "A premium full-stack ecommerce platform featuring state-of-the-art catalog search, cart management, stripe payment checkout, and an admin dashboard.",
-    longDescription: "PMart is a blazing-fast, modern ecommerce platform designed to deliver premium retail experiences. It is engineered with robust backend inventory sync, intelligent semantic search matching, dynamic filter criteria, secure authentication protocols, and a comprehensive checkout experience. It includes an interactive seller portal for monitoring sales analytics, inventory logs, and product performance metrics.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-    tags: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS", "REST APIs"],
-    liveUrl: "https://pmart-ecommerce.vercel.app",
-    githubUrl: "https://github.com/joel-atamba/pmart",
+    id: "stahiza-ent-desk",
+    name: "STAHIZA Entertainment Desk",
+    description: "An interactive school entertainment management system facilitating music requests, event registration, and talent showcase curation.",
+    longDescription: "STAHIZA Entertainment Desk is a highly custom digital interface tailored for school social events and entertainment assemblies. It features a real-time song request system, an event scheduler for school talent shows, and voting polls for campus competitions, complete with a clean dark-mode visual player theme and intuitive controls.",
+    image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Node.js"],
+    liveUrl: "https://stahiza-entertainment.vercel.app",
+    githubUrl: "https://github.com/joel-atamba/stahiza-ent-desk",
     highlights: [
-      "Secure user auth with role-based dashboard states",
-      "Optimized client-side search indexing and pagination systems",
-      "Dynamic interactive charts visualizing sales statistics",
-      "Complete checkout flow with animated success responses"
+      "Real-time student crowd song voting and request queue system",
+      "Dynamic school events calendar and talent show entry coordinator",
+      "Embedded mock retro music player complete with sound visualizer effects",
+      "Live interactive polling platform with instant charts reporting student votes"
+    ]
+  },
+  {
+    id: "stahiza-hub",
+    name: "STAHIZA Hub Portal",
+    description: "A comprehensive school intranet dashboard aggregating student resources, library index tracking, and peer tutoring networks.",
+    longDescription: "STAHIZA Hub is a multi-functional campus platform bridging the gap between students, educators, and learning assets. It provides high-speed file storage for class hand-outs, real-time book reservation tracking for the school library, and a peer-to-peer revision session coordinator.",
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Express", "Supabase"],
+    liveUrl: "https://stahiza-hub.vercel.app",
+    githubUrl: "https://github.com/joel-atamba/stahiza-hub",
+    highlights: [
+      "Unified educational resource repository with smart search filters",
+      "Library index tracking system with checkout reminder mechanics",
+      "Student study group and tutorial scheduler with direct WhatsApp linking",
+      "Course grade estimator helping students model target academic results"
+    ]
+  },
+  {
+    id: "laceon-ak-stitches",
+    name: "Laceon AK Stitches",
+    description: "A premium digital boutique and tailoring showcase built for custom garment designers to present portfolios and book order appointments.",
+    longDescription: "Laceon AK Stitches is a sophisticated custom catalog web application built for high-end tailoring. It integrates an elegant interactive design portfolio, custom fit measurement profiles, and a bespoke appointment reservation interface that handles fabric choices, style specs, and delivery dates.",
+    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "Tailwind CSS", "Framer Motion", "Vite", "EmailJS"],
+    liveUrl: "https://laceon-ak-stitches.vercel.app",
+    githubUrl: "https://github.com/joel-atamba/laceon-ak-stitches",
+    highlights: [
+      "High-resolution clothing design visual catalog with interactive zoom",
+      "Interactive multi-step form capturing comprehensive client fit measurements",
+      "Order progress tracking timeline and interactive fabric selection tools",
+      "Automated appointment bookings synced with live designer calendars"
+    ]
+  },
+  {
+    id: "status-saver",
+    name: "Status Saver Utility",
+    description: "A highly efficient utility application designed for media curation, enabling direct download, preview, and sharing of WhatsApp status updates.",
+    longDescription: "Status Saver is a lightweight, responsive utility tool built for seamless mobile media organization. It fetches, parses, and formats temporal media uploads, allowing users to safely preview images, stream video files, and batch-save them to local device memory.",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "PWA", "Tailwind CSS", "IndexedDB", "Lucide Icons"],
+    liveUrl: "https://status-saver-app.vercel.app",
+    githubUrl: "https://github.com/joel-atamba/status-saver",
+    highlights: [
+      "Offline-first PWA architecture with fast client-side storage cache",
+      "Seamless HTML5 light video player optimized for immediate streaming",
+      "Batch action manager allowing multi-save or multi-delete operations",
+      "Local media gallery categorized cleanly by images and video formats"
     ]
   },
   {

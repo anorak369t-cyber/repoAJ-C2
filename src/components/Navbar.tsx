@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Palette, Check } from 'lucide-react';
 
 const navItems = [
   { id: 'home', label: 'Home' },
@@ -12,10 +12,26 @@ const navItems = [
   { id: 'contact', label: 'Contact' }
 ];
 
-export default function Navbar() {
+const themes = [
+  { id: 'blue', label: 'Sapphire', color: 'bg-blue-500 border-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.5)]' },
+  { id: 'gold', label: 'Gold', color: 'bg-amber-500 border-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.5)]' },
+  { id: 'green', label: 'Emerald', color: 'bg-emerald-500 border-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.5)]' },
+  { id: 'red', label: 'Ruby', color: 'bg-rose-500 border-rose-400 shadow-[0_0_8px_rgba(244,63,94,0.5)]' },
+  { id: 'pink', label: 'Rose', color: 'bg-pink-500 border-pink-400 shadow-[0_0_8px_rgba(236,72,153,0.5)]' },
+  { id: 'white', label: 'Platinum', color: 'bg-stone-200 border-stone-400 shadow-[0_0_8px_rgba(120,113,108,0.3)]' },
+  { id: 'mixed', label: 'Nebula Mix', color: 'bg-gradient-to-tr from-purple-500 via-pink-500 to-amber-400 border-pink-300 shadow-[0_0_8px_rgba(168,85,247,0.6)]' }
+];
+
+interface NavbarProps {
+  theme: string;
+  onThemeChange: (theme: string) => void;
+}
+
+export default function Navbar({ theme, onThemeChange }: NavbarProps) {
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [themeMenuOpen, setThemeMenuOpen] = useState(false);
 
   // Active section scroll spy
   useEffect(() => {
@@ -104,8 +120,69 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Action button */}
-          <div className="hidden md:flex items-center">
+          {/* Action Button & Theme Selector Dropdown */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* Theme Trigger Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setThemeMenuOpen(!themeMenuOpen)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-slate-900/40 hover:bg-white/10 text-xs font-medium text-zinc-300 hover:text-white transition-all cursor-pointer"
+                title="Select Theme Color"
+              >
+                <Palette className="w-3.5 h-3.5" />
+                <span className="capitalize">{theme === 'mixed' ? 'Nebula' : theme}</span>
+                <span className={`w-2.5 h-2.5 rounded-full border border-white/15 ${
+                  themes.find(t => t.id === theme)?.color || 'bg-amber-400'
+                }`} />
+              </button>
+
+              <AnimatePresence>
+                {themeMenuOpen && (
+                  <>
+                    {/* Invisible Click-away Backdrop */}
+                    <div 
+                      className="fixed inset-0 z-40" 
+                      onClick={() => setThemeMenuOpen(false)} 
+                    />
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: 'easeOut' }}
+                      className="absolute right-0 mt-2 w-48 rounded-xl border border-white/5 bg-[#0f172a]/95 backdrop-blur-xl shadow-2xl p-1.5 z-50 space-y-1"
+                    >
+                      <div className="px-2.5 py-1 text-[10px] font-mono tracking-wider text-zinc-500 uppercase border-b border-white/5 mb-1">
+                        Select Theme
+                      </div>
+                      {themes.map((t) => {
+                        const isActive = theme === t.id;
+                        return (
+                          <button
+                            key={t.id}
+                            onClick={() => {
+                              onThemeChange(t.id);
+                              setThemeMenuOpen(false);
+                            }}
+                            className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+                              isActive 
+                                ? 'bg-white/5 text-white' 
+                                : 'text-zinc-400 hover:text-white hover:bg-white/5'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className={`w-3.5 h-3.5 rounded-full border border-white/10 ${t.color}`} />
+                              <span>{t.label}</span>
+                            </div>
+                            {isActive && <Check className="w-3.5 h-3.5 text-cyan-400" />}
+                          </button>
+                        );
+                      })}
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
+            </div>
+
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, 'contact')}
@@ -157,6 +234,34 @@ export default function Navbar() {
                   </a>
                 );
               })}
+
+              {/* Interactive Mobile Theme Picker */}
+              <div className="pt-4 pb-2 border-t border-white/5 px-3">
+                <div className="text-[10px] font-mono tracking-wider text-zinc-500 uppercase mb-2.5 flex items-center gap-1.5">
+                  <Palette className="w-3.5 h-3.5" />
+                  <span>Choose Visual Palette</span>
+                </div>
+                <div className="grid grid-cols-3 gap-1.5">
+                  {themes.map((t) => {
+                    const isActive = theme === t.id;
+                    return (
+                      <button
+                        key={t.id}
+                        onClick={() => onThemeChange(t.id)}
+                        className={`flex flex-col items-center gap-1 py-2 px-1 rounded-lg border transition-all cursor-pointer ${
+                          isActive 
+                            ? 'bg-white/5 border-cyan-500/50 text-white' 
+                            : 'bg-slate-900/40 border-white/5 text-zinc-400 hover:text-white hover:bg-white/5'
+                        }`}
+                      >
+                        <span className={`w-3.5 h-3.5 rounded-full border border-white/10 ${t.color}`} />
+                        <span className="text-[10px] font-medium tracking-wide">{t.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
               <div className="pt-4 px-3">
                 <a
                   href="#contact"

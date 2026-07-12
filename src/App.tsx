@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import Navbar from './components/Navbar';
 import LoadingScreen from './components/LoadingScreen';
@@ -16,6 +16,22 @@ import AIAssistant from './components/AIAssistant';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('portfolio-theme');
+      if (saved && ['blue', 'gold', 'green', 'red', 'pink', 'white', 'mixed'].includes(saved)) {
+        return saved;
+      }
+    }
+    return 'gold';
+  });
+
+  useEffect(() => {
+    const classes = ['theme-blue', 'theme-gold', 'theme-green', 'theme-red', 'theme-pink', 'theme-white', 'theme-mixed'];
+    document.documentElement.classList.remove(...classes);
+    document.documentElement.classList.add(`theme-${theme}`);
+    localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
 
   return (
     <>
@@ -28,10 +44,10 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="min-h-screen bg-[#070b19] text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-300"
+            className={`min-h-screen bg-[#070b19] text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-300 theme-${theme}`}
           >
-            {/* Frosted Floating Header */}
-            <Navbar />
+            {/* Frosted Floating Header with Theme Selector */}
+            <Navbar theme={theme} onThemeChange={setTheme} />
 
             {/* Main Content Sections */}
             <main>

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ExternalLink, Github, Sparkles, X, CheckCircle, ChevronDown } from 'lucide-react';
 import { PROJECTS_DATA } from '../data';
 import { Project } from '../types';
+import TiltCard from './TiltCard';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -53,14 +54,11 @@ export default function Projects() {
           {PROJECTS_DATA.map((project) => {
             const isExpanded = expandedId === project.id;
             return (
-              <motion.div
+              <TiltCard
                 key={project.id}
-                layout
                 onClick={() => setExpandedId(isExpanded ? null : project.id)}
-                className="group cursor-pointer rounded-2xl border border-white/5 bg-[#0f172a] overflow-hidden flex flex-col h-full relative hover:border-cyan-500/20 transition-all duration-300"
-                whileHover={isExpanded ? undefined : { y: -8 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                data-cursor-view
+                className="group cursor-pointer rounded-2xl border border-white/5 bg-[#0f172a] overflow-hidden flex flex-col h-full relative hover:border-cyan-500/20"
+                disabled={isExpanded}
               >
                 {/* Premium Shimmer and Sparkle effects */}
                 <div className="shimmer-effect" />
@@ -188,8 +186,41 @@ export default function Projects() {
                       </span>
                     )}
                   </div>
+
+                  {/* Direct Redirect Links */}
+                  <div className="flex items-center justify-between mt-5 pt-3 border-t border-white/5" onClick={(e) => e.stopPropagation()}>
+                    <button
+                      onClick={() => setSelectedProject(project)}
+                      className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1 cursor-pointer"
+                    >
+                      <span>Deep-Dive</span>
+                      <Sparkles className="w-3 h-3" />
+                    </button>
+                    <div className="flex items-center gap-4">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs text-zinc-400 hover:text-red-400 transition-colors flex items-center gap-1 cursor-pointer font-mono"
+                        title="Launch Live App"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>Live Demo</span>
+                      </a>
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs text-zinc-400 hover:text-white transition-colors flex items-center gap-1 cursor-pointer font-mono"
+                        title="GitHub Repository"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        <span>GitHub</span>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
+              </TiltCard>
             );
           })}
         </div>

@@ -5,76 +5,506 @@
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* Sky Blue shades override for all cyan and sky blue items */
-  --color-cyan-50: #f0f9ff;
-  --color-cyan-100: #e0f2fe;
-  --color-cyan-200: #bae6fd;
-  --color-cyan-300: #7dd3fc;
-  --color-cyan-400: #38bdf8; /* sky blue */
-  --color-cyan-500: #0ea5e9; /* sky blue */
-  --color-cyan-600: #0284c7;
-  --color-cyan-700: #0369a1;
-  --color-cyan-800: #075985;
-  --color-cyan-900: #0c4a6e;
-  --color-cyan-950: #020c1b;
+  /* Dynamic CSS custom properties mapped to Tailwind colors */
+  --color-cyan-50: var(--cyan-50);
+  --color-cyan-100: var(--cyan-100);
+  --color-cyan-200: var(--cyan-200);
+  --color-cyan-300: var(--cyan-300);
+  --color-cyan-400: var(--cyan-400);
+  --color-cyan-500: var(--cyan-500);
+  --color-cyan-600: var(--cyan-600);
+  --color-cyan-700: var(--cyan-700);
+  --color-cyan-800: var(--cyan-800);
+  --color-cyan-900: var(--cyan-900);
+  --color-cyan-950: var(--cyan-950);
 
-  --color-sky-50: #f0f9ff;
-  --color-sky-100: #e0f2fe;
-  --color-sky-200: #bae6fd;
-  --color-sky-300: #7dd3fc;
-  --color-sky-400: #38bdf8; /* sky blue */
-  --color-sky-500: #0ea5e9;
-  --color-sky-600: #0284c7;
-  --color-sky-700: #0369a1;
-  --color-sky-800: #075985;
-  --color-sky-900: #0c4a6e;
-  --color-sky-950: #020c1b;
+  --color-sky-50: var(--sky-50);
+  --color-sky-100: var(--sky-100);
+  --color-sky-200: var(--sky-200);
+  --color-sky-300: var(--sky-300);
+  --color-sky-400: var(--sky-400);
+  --color-sky-500: var(--sky-500);
+  --color-sky-600: var(--sky-600);
+  --color-sky-700: var(--sky-700);
+  --color-sky-800: var(--sky-800);
+  --color-sky-900: var(--sky-900);
+  --color-sky-950: var(--sky-950);
 
-  /* Gold shades override for all red items (buttons, details) */
-  --color-red-50: #fffbeb;
-  --color-red-100: #fef3c7;
-  --color-red-200: #fde68a;
-  --color-red-300: #fcd34d;
-  --color-red-400: #fbbf24; /* premium gold */
-  --color-red-500: #f59e0b; /* premium gold */
-  --color-red-600: #d97706; /* gold-dark */
-  --color-red-700: #b45309;
-  --color-red-800: #92400e;
-  --color-red-900: #78350f;
-  --color-red-950: #2d1602;
+  --color-red-50: var(--red-50);
+  --color-red-100: var(--red-100);
+  --color-red-200: var(--red-200);
+  --color-red-300: var(--red-300);
+  --color-red-400: var(--red-400);
+  --color-red-500: var(--red-500);
+  --color-red-600: var(--red-600);
+  --color-red-700: var(--red-700);
+  --color-red-800: var(--red-800);
+  --color-red-900: var(--red-900);
+  --color-red-950: var(--red-950);
 }
 
-/* Base resets & scrollbar styling with luxury deep navy */
+/* Global Root Default Variables (matches Gold theme) */
+:root {
+  --theme-bg: #090705;
+  --theme-card-bg: #15120d;
+  --theme-border-color: rgba(227, 182, 76, 0.15);
+  --theme-border-color-hover: rgba(227, 182, 76, 0.35);
+  --theme-box-shadow-hover: rgba(227, 182, 76, 0.08);
+  --theme-chip-bg: rgba(21, 18, 13, 0.9);
+  --theme-chip-border: rgba(227, 182, 76, 0.25);
+  --theme-scrollbar-thumb: #3b2604;
+  --theme-scrollbar-thumb-hover: #e3b64c;
+  --theme-grid-color: rgba(227, 182, 76, 0.02);
+  --theme-shimmer-color: rgba(227, 182, 76, 0.15);
+  --theme-text: #fafafa;
+  --theme-text-muted: #a1a1aa;
+
+  --cyan-50: #fefbf3;
+  --cyan-100: #fbf2db;
+  --cyan-200: #f6e2b3;
+  --cyan-300: #eed082;
+  --cyan-400: #e3b64c;
+  --cyan-500: #d49b29;
+  --cyan-600: #b37e1b;
+  --cyan-700: #8a5e11;
+  --cyan-800: #61410b;
+  --cyan-900: #3b2604;
+  --cyan-950: #1c1101;
+
+  --sky-50: #fefbf3;
+  --sky-100: #fbf2db;
+  --sky-200: #f6e2b3;
+  --sky-300: #eed082;
+  --sky-400: #e3b64c;
+  --sky-500: #d49b29;
+  --sky-600: #b37e1b;
+  --sky-700: #8a5e11;
+  --sky-800: #61410b;
+  --sky-900: #3b2604;
+  --sky-950: #1c1101;
+
+  --red-50: #fefbf3;
+  --red-100: #fbf2db;
+  --red-200: #f6e2b3;
+  --red-300: #eed082;
+  --red-400: #e3b64c;
+  --red-500: #d49b29;
+  --red-600: #b37e1b;
+  --red-700: #8a5e11;
+  --red-800: #61410b;
+  --red-900: #3b2604;
+  --red-950: #1c1101;
+}
+
+/* Theme 1: Blue (Sapphire & Royal Navy) */
+.theme-blue {
+  --theme-bg: #000521;
+  --theme-card-bg: #020c47;
+  --theme-border-color: rgba(32, 120, 207, 0.15);
+  --theme-border-color-hover: rgba(32, 120, 207, 0.35);
+  --theme-box-shadow-hover: rgba(32, 120, 207, 0.1);
+  --theme-chip-bg: rgba(1, 31, 101, 0.9);
+  --theme-chip-border: rgba(32, 120, 207, 0.25);
+  --theme-scrollbar-thumb: #011f65;
+  --theme-scrollbar-thumb-hover: #2078cf;
+  --theme-grid-color: rgba(32, 120, 207, 0.02);
+  --theme-shimmer-color: rgba(32, 120, 207, 0.15);
+  --theme-text: #fafafa;
+  --theme-text-muted: #94a3b8;
+
+  --cyan-50: #f0f7ff;
+  --cyan-100: #e0effe;
+  --cyan-200: #badefe;
+  --cyan-300: #7ec2fc;
+  --cyan-400: #2078cf;
+  --cyan-500: #0e4eb2;
+  --cyan-600: #011f65;
+  --cyan-700: #020c47;
+  --cyan-800: #000521;
+  --cyan-900: #000212;
+  --cyan-950: #000109;
+
+  --sky-50: #f0f7ff;
+  --sky-100: #e0effe;
+  --sky-200: #badefe;
+  --sky-300: #7ec2fc;
+  --sky-400: #2078cf;
+  --sky-500: #0e4eb2;
+  --sky-600: #011f65;
+  --sky-700: #020c47;
+  --sky-800: #000521;
+  --sky-900: #000212;
+  --sky-950: #000109;
+
+  --red-50: #f0f7ff;
+  --red-100: #e0effe;
+  --red-200: #badefe;
+  --red-300: #7ec2fc;
+  --red-400: #2078cf;
+  --red-500: #0e4eb2;
+  --red-600: #011f65;
+  --red-700: #020c47;
+  --red-800: #000521;
+  --red-900: #000212;
+  --red-950: #000109;
+}
+
+/* Theme 2: Gold (Premium Warm Charcoal & Champagne) */
+.theme-gold {
+  --theme-bg: #090705;
+  --theme-card-bg: #15120d;
+  --theme-border-color: rgba(227, 182, 76, 0.15);
+  --theme-border-color-hover: rgba(227, 182, 76, 0.35);
+  --theme-box-shadow-hover: rgba(227, 182, 76, 0.08);
+  --theme-chip-bg: rgba(21, 18, 13, 0.9);
+  --theme-chip-border: rgba(227, 182, 76, 0.25);
+  --theme-scrollbar-thumb: #3b2604;
+  --theme-scrollbar-thumb-hover: #e3b64c;
+  --theme-grid-color: rgba(227, 182, 76, 0.02);
+  --theme-shimmer-color: rgba(227, 182, 76, 0.15);
+  --theme-text: #fafafa;
+  --theme-text-muted: #a1a1aa;
+
+  --cyan-50: #fefbf3;
+  --cyan-100: #fbf2db;
+  --cyan-200: #f6e2b3;
+  --cyan-300: #eed082;
+  --cyan-400: #e3b64c;
+  --cyan-500: #d49b29;
+  --cyan-600: #b37e1b;
+  --cyan-700: #8a5e11;
+  --cyan-800: #61410b;
+  --cyan-900: #3b2604;
+  --cyan-950: #1c1101;
+
+  --sky-50: #fefbf3;
+  --sky-100: #fbf2db;
+  --sky-200: #f6e2b3;
+  --sky-300: #eed082;
+  --sky-400: #e3b64c;
+  --sky-500: #d49b29;
+  --sky-600: #b37e1b;
+  --sky-700: #8a5e11;
+  --sky-800: #61410b;
+  --sky-900: #3b2604;
+  --sky-950: #1c1101;
+
+  --red-50: #fefbf3;
+  --red-100: #fbf2db;
+  --red-200: #f6e2b3;
+  --red-300: #eed082;
+  --red-400: #e3b64c;
+  --red-500: #d49b29;
+  --red-600: #b37e1b;
+  --red-700: #8a5e11;
+  --red-800: #61410b;
+  --red-900: #3b2604;
+  --red-950: #1c1101;
+}
+
+/* Theme 3: Green (Emerald & Obsidian Deck) */
+.theme-green {
+  --theme-bg: #020804;
+  --theme-card-bg: #07140a;
+  --theme-border-color: rgba(52, 211, 153, 0.15);
+  --theme-border-color-hover: rgba(52, 211, 153, 0.35);
+  --theme-box-shadow-hover: rgba(52, 211, 153, 0.08);
+  --theme-chip-bg: rgba(7, 20, 10, 0.9);
+  --theme-chip-border: rgba(52, 211, 153, 0.25);
+  --theme-scrollbar-thumb: #064e3b;
+  --theme-scrollbar-thumb-hover: #34d399;
+  --theme-grid-color: rgba(52, 211, 153, 0.02);
+  --theme-shimmer-color: rgba(52, 211, 153, 0.15);
+  --theme-text: #fafafa;
+  --theme-text-muted: #a7f3d0;
+
+  --cyan-50: #ecfdf5;
+  --cyan-100: #d1fae5;
+  --cyan-200: #a7f3d0;
+  --cyan-300: #6ee7b7;
+  --cyan-400: #34d399;
+  --cyan-500: #10b981;
+  --cyan-600: #059669;
+  --cyan-700: #047857;
+  --cyan-800: #065f46;
+  --cyan-900: #064e3b;
+  --cyan-950: #022c22;
+
+  --sky-50: #ecfdf5;
+  --sky-100: #d1fae5;
+  --sky-200: #a7f3d0;
+  --sky-300: #6ee7b7;
+  --sky-400: #34d399;
+  --sky-500: #10b981;
+  --sky-600: #059669;
+  --sky-700: #047857;
+  --sky-800: #065f46;
+  --sky-900: #064e3b;
+  --sky-950: #022c22;
+
+  --red-50: #ecfdf5;
+  --red-100: #d1fae5;
+  --red-200: #a7f3d0;
+  --red-300: #6ee7b7;
+  --red-400: #34d399;
+  --red-500: #10b981;
+  --red-600: #059669;
+  --red-700: #047857;
+  --red-800: #065f46;
+  --red-900: #064e3b;
+  --red-950: #022c22;
+}
+
+/* Theme 4: Red (Ruby Crimson & Dark Burgundy) */
+.theme-red {
+  --theme-bg: #0c0202;
+  --theme-card-bg: #1a0808;
+  --theme-border-color: rgba(248, 113, 113, 0.15);
+  --theme-border-color-hover: rgba(248, 113, 113, 0.35);
+  --theme-box-shadow-hover: rgba(248, 113, 113, 0.08);
+  --theme-chip-bg: rgba(26, 8, 8, 0.9);
+  --theme-chip-border: rgba(248, 113, 113, 0.25);
+  --theme-scrollbar-thumb: #7f1d1d;
+  --theme-scrollbar-thumb-hover: #f87171;
+  --theme-grid-color: rgba(248, 113, 113, 0.02);
+  --theme-shimmer-color: rgba(248, 113, 113, 0.15);
+  --theme-text: #fafafa;
+  --theme-text-muted: #fca5a5;
+
+  --cyan-50: #fef2f2;
+  --cyan-100: #fee2e2;
+  --cyan-200: #fca5a5;
+  --cyan-300: #fca5a5;
+  --cyan-400: #f87171;
+  --cyan-500: #ef4444;
+  --cyan-600: #dc2626;
+  --cyan-700: #b91c1c;
+  --cyan-800: #991b1b;
+  --cyan-900: #7f1d1d;
+  --cyan-950: #450a0a;
+
+  --sky-50: #fef2f2;
+  --sky-100: #fee2e2;
+  --sky-200: #fca5a5;
+  --sky-300: #fca5a5;
+  --sky-400: #f87171;
+  --sky-500: #ef4444;
+  --sky-600: #dc2626;
+  --sky-700: #b91c1c;
+  --sky-800: #991b1b;
+  --sky-900: #7f1d1d;
+  --sky-950: #450a0a;
+
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fca5a5;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+  --red-950: #450a0a;
+}
+
+/* Theme 5: Pink (Midnight Rose & Berry Fuchsia) */
+.theme-pink {
+  --theme-bg: #0b0106;
+  --theme-card-bg: #1a0612;
+  --theme-border-color: rgba(244, 114, 182, 0.15);
+  --theme-border-color-hover: rgba(244, 114, 182, 0.35);
+  --theme-box-shadow-hover: rgba(244, 114, 182, 0.08);
+  --theme-chip-bg: rgba(26, 6, 18, 0.9);
+  --theme-chip-border: rgba(244, 114, 182, 0.25);
+  --theme-scrollbar-thumb: #701a4f;
+  --theme-scrollbar-thumb-hover: #f472b6;
+  --theme-grid-color: rgba(244, 114, 182, 0.02);
+  --theme-shimmer-color: rgba(244, 114, 182, 0.15);
+  --theme-text: #fafafa;
+  --theme-text-muted: #f9a8d4;
+
+  --cyan-50: #fdf2f8;
+  --cyan-100: #fce7f3;
+  --cyan-200: #fbcfe8;
+  --cyan-300: #f9a8d4;
+  --cyan-400: #f472b6;
+  --cyan-500: #ec4899;
+  --cyan-600: #db2777;
+  --cyan-700: #be185d;
+  --cyan-800: #9d174d;
+  --cyan-900: #831843;
+  --cyan-950: #500724;
+
+  --sky-50: #fdf2f8;
+  --sky-100: #fce7f3;
+  --sky-200: #fbcfe8;
+  --sky-300: #f9a8d4;
+  --sky-400: #f472b6;
+  --sky-500: #ec4899;
+  --sky-600: #db2777;
+  --sky-700: #be185d;
+  --sky-800: #9d174d;
+  --sky-900: #831843;
+  --sky-950: #500724;
+
+  --red-50: #fdf2f8;
+  --red-100: #fce7f3;
+  --red-200: #fbcfe8;
+  --red-300: #f9a8d4;
+  --red-400: #f472b6;
+  --red-500: #ec4899;
+  --red-600: #db2777;
+  --red-700: #be185d;
+  --red-800: #9d174d;
+  --red-900: #831843;
+  --red-950: #500724;
+}
+
+/* Theme 6: White (Minimalist Premium Alabaster / Light Mode) */
+.theme-white {
+  --theme-bg: #fbfbfa;
+  --theme-card-bg: #ffffff;
+  --theme-border-color: rgba(9, 7, 5, 0.1);
+  --theme-border-color-hover: rgba(9, 7, 5, 0.25);
+  --theme-box-shadow-hover: rgba(9, 7, 5, 0.05);
+  --theme-chip-bg: rgba(245, 245, 244, 0.9);
+  --theme-chip-border: rgba(9, 7, 5, 0.15);
+  --theme-scrollbar-thumb: #d6d3d1;
+  --theme-scrollbar-thumb-hover: #78716c;
+  --theme-grid-color: rgba(9, 7, 5, 0.03);
+  --theme-shimmer-color: rgba(9, 7, 5, 0.08);
+  --theme-text: #1c1917;
+  --theme-text-muted: #57534e;
+
+  --cyan-50: #f5f5f4;
+  --cyan-100: #e7e5e4;
+  --cyan-200: #d6d3d1;
+  --cyan-300: #a8a29e;
+  --cyan-400: #1c1917; /* Slate Obsidian primary */
+  --cyan-500: #292524;
+  --cyan-600: #44403c;
+  --cyan-700: #57534e;
+  --cyan-800: #78716c;
+  --cyan-900: #a8a29e;
+  --cyan-950: #f5f5f4;
+
+  --sky-50: #f5f5f4;
+  --sky-100: #e7e5e4;
+  --sky-200: #d6d3d1;
+  --sky-300: #a8a29e;
+  --sky-400: #1c1917;
+  --sky-500: #292524;
+  --sky-600: #44403c;
+  --sky-700: #57534e;
+  --sky-800: #78716c;
+  --sky-900: #a8a29e;
+  --sky-950: #f5f5f4;
+
+  --red-50: #f5f5f4;
+  --red-100: #e7e5e4;
+  --red-200: #d6d3d1;
+  --red-300: #a8a29e;
+  --red-400: #1c1917;
+  --red-500: #292524;
+  --red-600: #44403c;
+  --red-700: #57534e;
+  --red-800: #78716c;
+  --red-900: #a8a29e;
+  --red-950: #f5f5f4;
+}
+
+/* Theme 7: Mixed (Midnight Nebula / Rainbow Cyberpunk) */
+.theme-mixed {
+  --theme-bg: #030008;
+  --theme-card-bg: #0a0414;
+  --theme-border-color: rgba(147, 51, 234, 0.2);
+  --theme-border-color-hover: rgba(236, 72, 153, 0.4);
+  --theme-box-shadow-hover: rgba(147, 51, 234, 0.15);
+  --theme-chip-bg: rgba(18, 10, 36, 0.9);
+  --theme-chip-border: rgba(168, 85, 247, 0.3);
+  --theme-scrollbar-thumb: #3b0764;
+  --theme-scrollbar-thumb-hover: #d946ef;
+  --theme-grid-color: rgba(168, 85, 247, 0.03);
+  --theme-shimmer-color: rgba(236, 72, 153, 0.2);
+  --theme-text: #fafafa;
+  --theme-text-muted: #c084fc;
+
+  /* Mix of colors: Cyan is deep violet-magenta, Sky is deep gold-orange, Red is bright emerald-pink */
+  --cyan-50: #faf5ff;
+  --cyan-100: #f3e8ff;
+  --cyan-200: #e9d5ff;
+  --cyan-300: #d8b4fe;
+  --cyan-400: #c084fc; /* Purple highlight */
+  --cyan-500: #a855f7;
+  --cyan-600: #9333ea;
+  --cyan-700: #7e22ce;
+  --cyan-800: #6b21a8;
+  --cyan-900: #581c87;
+  --cyan-950: #3b0764;
+
+  --sky-50: #fdf4ff;
+  --sky-100: #fae8ff;
+  --sky-200: #f5d0fe;
+  --sky-300: #f0abfc;
+  --sky-400: #e879f9; /* Pink-fuchsia highlight */
+  --sky-500: #d946ef;
+  --sky-600: #c084fc;
+  --sky-700: #a855f7;
+  --sky-800: #7e22ce;
+  --sky-900: #581c87;
+  --sky-950: #3b0764;
+
+  --red-50: #fffbeb;
+  --red-100: #fef3c7;
+  --red-200: #fde68a;
+  --red-300: #fcd34d;
+  --red-400: #fbbf24; /* Warm Gold accent */
+  --red-500: #f59e0b;
+  --red-600: #d97706;
+  --red-700: #b45309;
+  --red-800: #92400e;
+  --red-900: #78350f;
+  --red-950: #451a03;
+}
+
+/* Base resets & scrollbar styling with luxury theme custom variables */
 html {
   scroll-behavior: smooth;
-  background-color: #02040a; /* Premium Navy-Black */
-  color: #fafafa;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body {
   overflow-x: hidden;
-  background-color: #02040a;
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Custom Global Swapping for the requested Navy Blue, Black, Gold & Sky Blue palette */
+/* Custom Global Swapping for the dynamic theme layouts */
 [class*="bg-[#070b19]"] {
-  background-color: #020410 !important; /* Elegant Navy Blue backdrop */
+  background-color: var(--theme-bg) !important;
+  transition: background-color 0.4s ease;
 }
 
 [class*="bg-[#0f172a]"] {
-  background-color: #000000 !important; /* Pitch Black card structures */
-  border-color: rgba(245, 158, 11, 0.08) !important; /* Subtle Gold borders */
+  background-color: var(--theme-card-bg) !important;
+  border-color: var(--theme-border-color) !important;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 [class*="bg-[#0f172a]"]:hover {
-  border-color: rgba(245, 158, 11, 0.2) !important;
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.03) !important;
+  border-color: var(--theme-border-color-hover) !important;
+  box-shadow: 0 0 30px var(--theme-box-shadow-hover) !important;
 }
 
 /* Draggable skill chips custom base backings */
 [class*="bg-[#131e35]/90"] {
-  background-color: rgba(2, 4, 16, 0.95) !important;
-  border-color: rgba(56, 189, 248, 0.15) !important; /* Sky Blue borders */
+  background-color: var(--theme-chip-bg) !important;
+  border-color: var(--theme-chip-border) !important;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 /* Custom Webkit scrollbar for premium feel */
@@ -82,15 +512,53 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #02040a;
+  background: var(--theme-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #0d1222;
+  background: var(--theme-scrollbar-thumb);
   border-radius: 9999px;
-  border: 2px solid #02040a;
+  border: 2px solid var(--theme-bg);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8; /* Sky Blue drag handles */
+  background: var(--theme-scrollbar-thumb-hover);
+}
+
+/* Premium dynamic overrides to support light mode (theme-white) seamlessly */
+.theme-white [class*="text-zinc-400"],
+.theme-white [class*="text-zinc-500"],
+.theme-white [class*="text-slate-400"],
+.theme-white [class*="text-zinc-300"] {
+  color: var(--theme-text-muted) !important;
+}
+
+.theme-white [class*="text-zinc-200"],
+.theme-white [class*="text-zinc-100"],
+.theme-white [class*="text-white"] {
+  color: var(--theme-text) !important;
+}
+
+.theme-white [class*="text-white/"] {
+  color: rgba(28, 25, 23, 0.7) !important;
+}
+
+.theme-white [class*="border-white/"] {
+  border-color: rgba(28, 25, 23, 0.1) !important;
+}
+
+.theme-white [class*="bg-white/"] {
+  background-color: rgba(28, 25, 23, 0.05) !important;
+}
+
+.theme-white [class*="bg-[#0b1329]"],
+.theme-white [class*="bg-[#030712]"] {
+  background-color: var(--theme-bg) !important;
+}
+
+.theme-white [class*="from-[#030712]"],
+.theme-white [class*="via-[#030712]"],
+.theme-white [class*="to-[#030712]"] {
+  --tw-gradient-from: var(--theme-bg) !important;
+  --tw-gradient-to: var(--theme-bg) !important;
 }
 
 /* Premium radial gradient backgrounds and animations */
@@ -129,22 +597,22 @@ body {
 /* Subtle grid overlay */
 .bg-grid-pattern {
   background-image: 
-    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(227, 182, 76, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(227, 182, 76, 0.02) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 /* Frosted glass utility with custom gold highlights */
 .glass-panel {
-  background: rgba(2, 4, 16, 0.85);
+  background: rgba(9, 7, 5, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(227, 182, 76, 0.08);
 }
 
 .glass-panel:hover {
-  border-color: rgba(245, 158, 11, 0.25);
-  box-shadow: 0 0 25px rgba(245, 158, 11, 0.05);
+  border-color: rgba(227, 182, 76, 0.25);
+  box-shadow: 0 0 25px rgba(227, 182, 76, 0.05);
 }
 
 /* Premium Shimmer effect on hover */
@@ -157,11 +625,11 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(56, 189, 248, 0) 30%,
-    rgba(56, 189, 248, 0.08) 45%,
-    rgba(245, 158, 11, 0.12) 50%,
-    rgba(56, 189, 248, 0.08) 55%,
-    rgba(56, 189, 248, 0) 70%,
+    rgba(227, 182, 76, 0) 30%,
+    rgba(227, 182, 76, 0.05) 45%,
+    rgba(227, 182, 76, 0.15) 50%,
+    rgba(227, 182, 76, 0.05) 55%,
+    rgba(227, 182, 76, 0) 70%,
     transparent 100%
   );
   transform: skewX(-25deg);

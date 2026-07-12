@@ -1,7 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'motion/react';
-import { Award, GraduationCap, MapPin, Sparkles } from 'lucide-react';
+import { Award, GraduationCap, MapPin, Sparkles, Camera, Users, Palette, Code } from 'lucide-react';
 import { ABOUT_DATA } from '../data';
+import joelDesigning from '../assets/images/joel_designing_1783859912965.jpg';
+import stahizaClub from '../assets/images/stahiza_club_1783859927733.jpg';
+import joelCoding from '../assets/images/joel_coding_1783859943588.jpg';
 
 // Smooth animating counter component
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
@@ -191,6 +194,179 @@ export default function About() {
           </div>
 
         </div>
+
+        {/* Visual Collage Section */}
+        <div className="mt-24 pt-16 border-t border-white/5 relative">
+          <div className="mb-10 text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-amber-500/15 bg-amber-500/5 text-amber-400 text-[10px] font-mono tracking-widest uppercase mb-3"
+            >
+              <Camera className="w-3.5 h-3.5" />
+              <span>CRAFT & COMMUNITY IN FOCUS</span>
+            </motion.div>
+            <motion.h3 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase font-sans"
+            >
+              Developer & Designer Lifestyle
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-zinc-500 text-sm max-w-xl mt-2 font-normal leading-relaxed"
+            >
+              An authentic behind-the-scenes look at my creative processes—from wireframe layout sprints to full-stack code deployments and Standard High School Zzana ICT Club mentorship.
+            </motion.p>
+          </div>
+
+          {/* Interactive Bento Gallery */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6" id="developer-collage">
+            {/* 1. The UI/UX Designer (Wide Span) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="lg:col-span-7 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[320px] sm:h-[380px] cursor-pointer"
+              id="collage-designer-card"
+            >
+              <img
+                src={joelDesigning}
+                alt="Atamba Joel designing UI/UX on tablet"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono">
+                    Figma Workspace
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono">
+                    UI/UX Design
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                  <Palette className="w-4 h-4 text-amber-400 animate-pulse" />
+                  Visual Interface Crafting
+                </h4>
+                <p className="text-zinc-400 text-xs sm:text-sm mt-1 max-w-md leading-relaxed">
+                  Wireframing, typography scales, accessibility token systems, and interactive design prototypes crafted to establish fluid user journeys.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 2. The STAHIZA Club President */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="lg:col-span-5 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[320px] sm:h-[380px] cursor-pointer"
+              id="collage-president-card"
+            >
+              <img
+                src={stahizaClub}
+                alt="Atamba Joel leading high school student developers"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2.5 py-0.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-mono">
+                    Leadership
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-mono">
+                    Education
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                  <Users className="w-4 h-4 text-cyan-400" />
+                  ICT Club Empowerment
+                </h4>
+                <p className="text-zinc-400 text-xs sm:text-sm mt-1 leading-relaxed">
+                  Leading coding bootcamps, hosting custom design workshops, and guiding high school peers through web layout wireframing in Kampala.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 3. The Full-Stack Engineer */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="lg:col-span-5 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[320px] sm:h-[380px] cursor-pointer"
+              id="collage-developer-card"
+            >
+              <img
+                src={joelCoding}
+                alt="Atamba Joel coding typescript behind monitor"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono">
+                    TypeScript
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono">
+                    Full Stack
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                  <Code className="w-4 h-4 text-emerald-400" />
+                  Deep-Focus Architecture
+                </h4>
+                <p className="text-zinc-400 text-xs sm:text-sm mt-1 leading-relaxed">
+                  Implementing robust Node backends, custom responsive database integrations, and high-performance interactive interfaces.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 4. The Visual Spec Canvas */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="lg:col-span-7 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[320px] sm:h-[380px] cursor-pointer"
+              id="collage-spec-card"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=1200&q=80"
+                alt="Modern UIUX style guide and responsive prototype elements"
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-95"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2.5 py-0.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-[10px] font-mono">
+                    Design Token Spec
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono">
+                    Aesthetics
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                  <Palette className="w-4 h-4 text-pink-400" />
+                  Design-to-Code Alignment
+                </h4>
+                <p className="text-zinc-400 text-xs sm:text-sm mt-1 max-w-md leading-relaxed">
+                  Form follows function. Merging creative layouts with engineering precision, adhering to accessible WCAG AAA guidelines, and elegant typographic scales.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

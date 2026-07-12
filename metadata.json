@@ -1,0 +1,6 @@
+{
+  "name": "Developer Portfolio",
+  "description": "Premium full-stack developer portfolio for Atamba Joel, featuring an interactive AI Assistant and GitHub statistics tracker.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

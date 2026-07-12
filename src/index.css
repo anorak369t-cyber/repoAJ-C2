@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Sky Blue shades override for all cyan and sky blue items */
+  --color-cyan-50: #f0f9ff;
+  --color-cyan-100: #e0f2fe;
+  --color-cyan-200: #bae6fd;
+  --color-cyan-300: #7dd3fc;
+  --color-cyan-400: #38bdf8; /* sky blue */
+  --color-cyan-500: #0ea5e9; /* sky blue */
+  --color-cyan-600: #0284c7;
+  --color-cyan-700: #0369a1;
+  --color-cyan-800: #075985;
+  --color-cyan-900: #0c4a6e;
+  --color-cyan-950: #020c1b;
+
+  --color-sky-50: #f0f9ff;
+  --color-sky-100: #e0f2fe;
+  --color-sky-200: #bae6fd;
+  --color-sky-300: #7dd3fc;
+  --color-sky-400: #38bdf8; /* sky blue */
+  --color-sky-500: #0ea5e9;
+  --color-sky-600: #0284c7;
+  --color-sky-700: #0369a1;
+  --color-sky-800: #075985;
+  --color-sky-900: #0c4a6e;
+  --color-sky-950: #020c1b;
+
+  /* Gold shades override for all red items (buttons, details) */
+  --color-red-50: #fffbeb;
+  --color-red-100: #fef3c7;
+  --color-red-200: #fde68a;
+  --color-red-300: #fcd34d;
+  --color-red-400: #fbbf24; /* premium gold */
+  --color-red-500: #f59e0b; /* premium gold */
+  --color-red-600: #d97706; /* gold-dark */
+  --color-red-700: #b45309;
+  --color-red-800: #92400e;
+  --color-red-900: #78350f;
+  --color-red-950: #2d1602;
+}
+
+/* Base resets & scrollbar styling with luxury deep navy */
+html {
+  scroll-behavior: smooth;
+  background-color: #02040a; /* Premium Navy-Black */
+  color: #fafafa;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #02040a;
+}
+
+/* Custom Global Swapping for the requested Navy Blue, Black, Gold & Sky Blue palette */
+[class*="bg-[#070b19]"] {
+  background-color: #020410 !important; /* Elegant Navy Blue backdrop */
+}
+
+[class*="bg-[#0f172a]"] {
+  background-color: #000000 !important; /* Pitch Black card structures */
+  border-color: rgba(245, 158, 11, 0.08) !important; /* Subtle Gold borders */
+}
+
+[class*="bg-[#0f172a]"]:hover {
+  border-color: rgba(245, 158, 11, 0.2) !important;
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.03) !important;
+}
+
+/* Draggable skill chips custom base backings */
+[class*="bg-[#131e35]/90"] {
+  background-color: rgba(2, 4, 16, 0.95) !important;
+  border-color: rgba(56, 189, 248, 0.15) !important; /* Sky Blue borders */
+}
+
+/* Custom Webkit scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #02040a;
+}
+::-webkit-scrollbar-thumb {
+  background: #0d1222;
+  border-radius: 9999px;
+  border: 2px solid #02040a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8; /* Sky Blue drag handles */
+}
+
+/* Premium radial gradient backgrounds and animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1) translate(0px, 0px);
+    opacity: 0.4;
+  }
+  33% {
+    transform: scale(1.15) translate(30px, -20px);
+    opacity: 0.6;
+  }
+  66% {
+    transform: scale(0.9) translate(-10px, 40px);
+    opacity: 0.5;
+  }
+}
+
+.animate-blob-1 {
+  animation: pulseGlow 18s infinite alternate ease-in-out;
+}
+
+.animate-blob-2 {
+  animation: pulseGlow 22s infinite alternate-reverse ease-in-out 2s;
+}
+
+.animate-blob-3 {
+  animation: pulseGlow 20s infinite alternate ease-in-out 4s;
+}
+
+/* Magnetic components cursor helper */
+.magnetic-wrapper {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Subtle grid overlay */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Frosted glass utility with custom gold highlights */
+.glass-panel {
+  background: rgba(2, 4, 16, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.08);
+}
+
+.glass-panel:hover {
+  border-color: rgba(245, 158, 11, 0.25);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.05);
+}
+
+/* Premium Shimmer effect on hover */
+.shimmer-effect {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(56, 189, 248, 0) 30%,
+    rgba(56, 189, 248, 0.08) 45%,
+    rgba(245, 158, 11, 0.12) 50%,
+    rgba(56, 189, 248, 0.08) 55%,
+    rgba(56, 189, 248, 0) 70%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 20;
+}
+
+.group:hover .shimmer-effect {
+  animation: shimmerSweep 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+/* Sparkle particles twinkling on hover */
+@keyframes sparkleTwinkle {
+  0%, 100% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+.animate-sparkle-1 {
+  animation: sparkleTwinkle 2.2s ease-in-out infinite;
+}
+
+.animate-sparkle-2 {
+  animation: sparkleTwinkle 2.8s ease-in-out infinite 0.5s;
+}
+
+.animate-sparkle-3 {
+  animation: sparkleTwinkle 2s ease-in-out infinite 1s;
+}
+

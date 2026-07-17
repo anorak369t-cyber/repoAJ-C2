@@ -71,15 +71,42 @@ export default function ScrollReveal({
       viewport={{ once, margin }}
       variants={containerVariants}
     >
-      {childrenArray.map((child, index) => (
-        <motion.div
-          key={index}
-          variants={childVariants}
-          className="w-full h-full flex-1"
-        >
-          {child}
-        </motion.div>
-      ))}
+      {childrenArray.map((child, index) => {
+        let gridClasses = '';
+        if (React.isValidElement(child)) {
+          const childProps = child.props as { className?: string };
+          if (childProps && childProps.className) {
+            const classes = childProps.className.split(/\s+/);
+            const spanClasses = classes.filter(c => 
+              c.includes('col-span') || 
+              c.includes('row-span') || 
+              c.includes('col-start') || 
+              c.includes('col-end') ||
+              c.startsWith('sm:col-') ||
+              c.startsWith('md:col-') ||
+              c.startsWith('lg:col-') ||
+              c.startsWith('xl:col-') ||
+              c.startsWith('2xl:col-') ||
+              c.startsWith('sm:row-') ||
+              c.startsWith('md:row-') ||
+              c.startsWith('lg:row-') ||
+              c.startsWith('xl:row-') ||
+              c.startsWith('2xl:row-')
+            );
+            gridClasses = spanClasses.join(' ');
+          }
+        }
+
+        return (
+          <motion.div
+            key={index}
+            variants={childVariants}
+            className={`${gridClasses} w-full h-full`}
+          >
+            {child}
+          </motion.div>
+        );
+      })}
     </motion.div>
   );
 }

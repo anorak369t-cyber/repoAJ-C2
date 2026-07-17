@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Award, GraduationCap, MapPin, Sparkles, Camera, Users, Palette, Code } from 'lucide-react';
 import { ABOUT_DATA } from '../data';
+import ScrollReveal from './ScrollReveal';
 import joelDesigning from '../assets/images/joel_designing_1783859912965.jpg';
 import stahizaClub from '../assets/images/stahiza_club_1783859927733.jpg';
 import joelCoding from '../assets/images/joel_coding_1783859943588.jpg';
@@ -169,15 +170,11 @@ export default function About() {
             </motion.div>
 
             {/* Statistics Counters Grid */}
-            <div className="grid grid-cols-2 gap-6 pt-6 border-t border-white/5">
-              {ABOUT_DATA.stats.map((stat, idx) => (
-                <motion.div
+            <ScrollReveal staggerChildren={0.12} className="grid grid-cols-2 gap-6 pt-6 border-t border-white/5">
+              {ABOUT_DATA.stats.map((stat) => (
+                <div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + idx * 0.1 }}
-                  className="p-5 rounded-2xl border border-white/5 bg-[#131e35] relative overflow-hidden group hover:border-cyan-500/25 transition-colors"
+                  className="p-5 rounded-2xl border border-white/5 bg-[#131e35] relative overflow-hidden group hover:border-cyan-500/25 transition-colors h-full"
                 >
                   {/* Subtle inner linear shimmer glow */}
                   <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
@@ -188,9 +185,9 @@ export default function About() {
                       {stat.label}
                     </span>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </div>
+            </ScrollReveal>
           </div>
 
         </div>
@@ -228,13 +225,9 @@ export default function About() {
           </div>
 
           {/* Interactive Bento Gallery */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6" id="developer-collage">
+          <ScrollReveal staggerChildren={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6" id="developer-collage">
             {/* 1. The UI/UX Designer (Wide Span) */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+            <div
               className="lg:col-span-7 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[320px] sm:h-[380px] cursor-pointer"
               id="collage-designer-card"
             >
@@ -261,14 +254,10 @@ export default function About() {
                   Wireframing, typography scales, accessibility token systems, and interactive design prototypes crafted to establish fluid user journeys.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* 2. The STAHIZA Club President */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+            <div
               className="lg:col-span-5 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[320px] sm:h-[380px] cursor-pointer"
               id="collage-president-card"
             >
@@ -295,14 +284,10 @@ export default function About() {
                   Leading coding bootcamps, hosting custom design workshops, and guiding high school peers through web layout wireframing in Kampala.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* 3. The Full-Stack Engineer */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+            <div
               className="lg:col-span-5 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[320px] sm:h-[380px] cursor-pointer"
               id="collage-developer-card"
             >
@@ -329,14 +314,10 @@ export default function About() {
                   Implementing robust Node backends, custom responsive database integrations, and high-performance interactive interfaces.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* 4. The Visual Spec Canvas */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+            <div
               className="lg:col-span-7 group relative rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] h-[320px] sm:h-[380px] cursor-pointer"
               id="collage-spec-card"
             >
@@ -363,8 +344,8 @@ export default function About() {
                   Form follows function. Merging creative layouts with engineering precision, adhering to accessible WCAG AAA guidelines, and elegant typographic scales.
                 </p>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
 
       </div>

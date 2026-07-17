@@ -15,6 +15,7 @@ import Footer from './components/Footer';
 import AIAssistant from './components/AIAssistant';
 import BackToTop from './components/BackToTop';
 import ScrollProgressBar from './components/ScrollProgressBar';
+import ScrollReveal from './components/ScrollReveal';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -56,32 +57,48 @@ export default function App() {
 
             {/* Main Content Sections */}
             <main>
-              {/* Hero Showcase Section */}
+              {/* Hero Showcase Section (handles its own entrance on mount) */}
               <Hero />
 
               {/* Split Bio & Counters Section */}
-              <About />
+              <ScrollReveal>
+                <About />
+              </ScrollReveal>
 
               {/* Competencies Chip Deck Section */}
-              <Skills />
+              <ScrollReveal>
+                <Skills />
+              </ScrollReveal>
 
               {/* Shared Layout Projects Showcase */}
-              <Projects />
+              <ScrollReveal>
+                <Projects />
+              </ScrollReveal>
 
               {/* Leadership timeline Section */}
-              <Experience />
+              <ScrollReveal>
+                <Experience />
+              </ScrollReveal>
 
               {/* Certificates Credentials Grid */}
-              <Certifications />
+              <ScrollReveal>
+                <Certifications />
+              </ScrollReveal>
 
               {/* GitHub Analytical Dashboard Section */}
-              <GitHubTracker />
+              <ScrollReveal>
+                <GitHubTracker />
+              </ScrollReveal>
 
               {/* Reviews Slide Deck */}
-              <Testimonials />
+              <ScrollReveal>
+                <Testimonials />
+              </ScrollReveal>
 
               {/* Morphing Contact Form Box */}
-              <Contact />
+              <ScrollReveal>
+                <Contact />
+              </ScrollReveal>
             </main>
 
             {/* Minimal Footnotes Footer */}

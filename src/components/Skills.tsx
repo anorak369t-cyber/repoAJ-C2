@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion } from 'motion/react';
 import { Layers, Sparkles, Terminal, Palette, Settings } from 'lucide-react';
 import { SKILLS_DATA } from '../data';
+import ScrollReveal from './ScrollReveal';
 
 // Custom skill proficiency dictionary
 const SKILL_PROFICIENCY: Record<string, number> = {
@@ -187,15 +188,11 @@ export default function Skills() {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SKILLS_DATA.map((category, catIdx) => (
-            <motion.div
+        <ScrollReveal staggerChildren={0.15} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {SKILLS_DATA.map((category) => (
+            <div
               key={category.title}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: catIdx * 0.15 }}
-              className="p-6 sm:p-8 rounded-2xl border border-white/5 bg-[#0f172a] relative overflow-hidden group hover:border-cyan-500/20 transition-all duration-300"
+              className="p-6 sm:p-8 rounded-2xl border border-white/5 bg-[#0f172a] relative overflow-hidden group hover:border-cyan-500/20 transition-all duration-300 h-full"
             >
               {/* Outer soft glowing boundaries on hover */}
               <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/2 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
@@ -224,9 +221,9 @@ export default function Skills() {
                   );
                 })}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </ScrollReveal>
 
         {/* Tip Badge */}
         <motion.div 

@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, ArrowRight, Download, Send, X, FileText } from 'lucide-react';
+import { Sparkles, ArrowRight, Download, Send, X, FileText, Lock } from 'lucide-react';
 import Magnetic from './Magnetic';
 import { HERO_DATA } from '../data';
 import { downloadProfessionalCV } from '../utils/pdfGenerator';
@@ -9,6 +9,8 @@ export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   // Mouse-following glow coordinate tracking
   useEffect(() => {
@@ -40,6 +42,23 @@ export default function Hero() {
 
   const handleDownloadCV = () => {
     downloadProfessionalCV();
+  };
+
+  const openConfirmModal = () => {
+    setPassword('');
+    setPasswordError('');
+    setShowConfirmModal(true);
+  };
+
+  const handleConfirmDownload = () => {
+    if (password.trim() === '3145') {
+      handleDownloadCV();
+      setShowConfirmModal(false);
+      setPassword('');
+      setPasswordError('');
+    } else {
+      setPasswordError('Access Denied: Invalid Personnel Passcode');
+    }
   };
 
   // Stagger configurations
@@ -204,7 +223,7 @@ export default function Hero() {
 
             <Magnetic>
               <button 
-                onClick={() => setShowConfirmModal(true)}
+                onClick={openConfirmModal}
                 className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/10 hover:border-red-500/50 bg-white/2 hover:bg-red-950/10 text-sm font-semibold text-zinc-300 hover:text-red-300 flex items-center justify-center gap-2 hover:scale-[1.03] transition-all cursor-pointer group"
               >
                 <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
@@ -259,18 +278,56 @@ export default function Hero() {
 
               <div className="flex items-start gap-4 mt-2">
                 <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500">
-                  <FileText className="w-6 h-6" />
+                  <Lock className="w-6 h-6" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-white tracking-wide font-sans flex items-center gap-2">
-                    <span>Confirm Resume Download</span>
+                    <span>Authorized Download Only</span>
                     <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
                   </h3>
                   <p className="mt-2 text-zinc-400 text-xs sm:text-sm font-normal leading-relaxed">
-                    Would you like to initiate the download of **Atamba Joel's** professional CV? 
-                    This well-structured, vector-perfect PDF document details his technical skills, certification credentials, Standard High School Zzana ICT Club Presidency, and core full-stack project stack.
+                    Access to Atamba Joel's professional CV is restricted to authorized personnel. Please enter the required 4-digit passcode to proceed with the download.
                   </p>
                 </div>
+              </div>
+
+              {/* Password Input Field */}
+              <div className="mt-5 bg-white/[0.02] border border-white/5 rounded-xl p-4 flex flex-col gap-2.5">
+                <label className="text-[11px] font-mono tracking-wider text-zinc-400 uppercase">
+                  Security Passcode
+                </label>
+                <div className="relative">
+                  <input
+                    type="password"
+                    maxLength={10}
+                    placeholder="••••"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      if (passwordError) setPasswordError('');
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        handleConfirmDownload();
+                      }
+                    }}
+                    className="w-full px-3 py-2 text-sm text-white placeholder-zinc-700 bg-black/40 border border-white/10 rounded-lg focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/20 transition-all font-mono text-center tracking-[0.25em]"
+                    autoFocus
+                  />
+                </div>
+                <AnimatePresence mode="wait">
+                  {passwordError ? (
+                    <motion.p
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="text-red-400 text-xs font-medium flex items-center gap-1.5"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
+                      {passwordError}
+                    </motion.p>
+                  ) : null}
+                </AnimatePresence>
               </div>
 
               {/* Action Buttons */}
@@ -279,17 +336,14 @@ export default function Hero() {
                   onClick={() => setShowConfirmModal(false)}
                   className="px-4 py-2 rounded-lg text-xs font-semibold text-zinc-400 hover:text-white bg-transparent hover:bg-white/5 border border-transparent hover:border-white/10 transition-all cursor-pointer"
                 >
-                  No, thanks
+                  Cancel
                 </button>
                 <button
-                  onClick={() => {
-                    handleDownloadCV();
-                    setShowConfirmModal(false);
-                  }}
+                  onClick={handleConfirmDownload}
                   className="flex items-center gap-1.5 px-5 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-red-500 hover:from-amber-400 hover:to-red-400 text-xs font-bold text-black hover:scale-[1.02] transition-all cursor-pointer shadow-lg shadow-amber-500/10"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>Download CV</span>
+                  <span>Unlock & Download</span>
                 </button>
               </div>
             </motion.div>

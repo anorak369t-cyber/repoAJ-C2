@@ -4,6 +4,7 @@ import { ExternalLink, Github, Sparkles, X, CheckCircle, ChevronDown, ArrowUpRig
 import { PROJECTS_DATA } from '../data';
 import { Project } from '../types';
 import TiltCard from './TiltCard';
+import ScrollReveal from './ScrollReveal';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -50,7 +51,7 @@ export default function Projects() {
         </div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+        <ScrollReveal staggerChildren={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
           {PROJECTS_DATA.map((project) => {
             const isExpanded = expandedId === project.id;
             return (
@@ -227,7 +228,7 @@ export default function Projects() {
               </TiltCard>
             );
           })}
-        </div>
+        </ScrollReveal>
 
         {/* Morphing Expanded Showcase Details Modal */}
         <AnimatePresence>

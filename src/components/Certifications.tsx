@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Sparkles, Terminal, Layout, Brain, Code, ExternalLink } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../data';
+import ScrollReveal from './ScrollReveal';
 
 // Map icon name to Lucide icon component
 const iconMap: { [key: string]: any } = {
@@ -42,7 +43,7 @@ export default function Certifications() {
         </div>
 
         {/* Bento/Card Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ScrollReveal staggerChildren={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {CERTIFICATIONS_DATA.map((cert, idx) => {
             const IconComponent = iconMap[cert.iconName] || Code;
             // Alternate icons between cyan and red for premium rhythmic detail
@@ -53,10 +54,6 @@ export default function Certifications() {
                 href={cert.credentialUrl}
                 target="_blank"
                 rel="noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.08, type: "spring", stiffness: 100, damping: 20 }}
                 whileHover={{ y: -6 }}
                 className="p-6 rounded-2xl border border-white/5 bg-[#0f172a] flex flex-col justify-between h-full group hover:border-cyan-500/20 transition-all cursor-pointer"
               >
@@ -91,7 +88,7 @@ export default function Certifications() {
               </motion.a>
             );
           })}
-        </div>
+        </ScrollReveal>
 
       </div>
     </section>

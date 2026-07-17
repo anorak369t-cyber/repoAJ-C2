@@ -98,7 +98,7 @@ export default function Contact() {
 
               {/* GitHub */}
               <a 
-                href="https://github.com/joel-atamba"
+                href="https://github.com/hasty-joel"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
@@ -114,7 +114,7 @@ export default function Contact() {
 
               {/* LinkedIn */}
               <a 
-                href="https://linkedin.com/in/joel-atamba"
+                href="https://linkedin.com/in/hasty01"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
@@ -130,7 +130,7 @@ export default function Contact() {
 
               {/* WhatsApp */}
               <a 
-                href="https://wa.me/256708304123"
+                href="https://wa.me/2567672702"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"

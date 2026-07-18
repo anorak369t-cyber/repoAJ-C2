@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageSquare, X, Send, Sparkles, User, BrainCircuit, ArrowUpRight } from 'lucide-react';
+import { MessageSquare, X, Send, User, BrainCircuit, ArrowUpRight } from 'lucide-react';
 import { ChatMessage } from '../types';
 
 const quickPrompts = [

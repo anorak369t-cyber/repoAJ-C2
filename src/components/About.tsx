@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'motion/react';
-import { Award, GraduationCap, MapPin, Sparkles, Camera, Users, Palette, Code } from 'lucide-react';
+import { Award, GraduationCap, MapPin, Camera, Users, Palette, Code } from 'lucide-react';
 import { ABOUT_DATA } from '../data';
 import ScrollReveal from './ScrollReveal';
 import joelDesigning from '../assets/images/joel_designing_1783859912965.jpg';
@@ -59,7 +59,6 @@ export default function About() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
           >
-            <Sparkles className="w-3.5 h-3.5" />
             <span>01 / ABOUT ME</span>
           </motion.div>
           
@@ -163,7 +162,7 @@ export default function About() {
                   <span>Standard High School Zzana (STAHIZA) Leader</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-semibold">
-                  <Sparkles className="w-3.5 h-3.5 text-sky-400" />
+                  <Code className="w-3.5 h-3.5 text-sky-400" />
                   <span>AI Developer & Designer</span>
                 </div>
               </div>

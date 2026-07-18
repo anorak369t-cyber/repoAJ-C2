@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Sparkles, Terminal, Layout, Brain, Code, ExternalLink } from 'lucide-react';
+import { Terminal, Layout, Brain, Code, ExternalLink } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../data';
 import ScrollReveal from './ScrollReveal';
 
@@ -27,7 +27,6 @@ export default function Certifications() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
           >
-            <Sparkles className="w-3.5 h-3.5" />
             <span>05 / EDUCATION & CREDENTIALS</span>
           </motion.div>
           

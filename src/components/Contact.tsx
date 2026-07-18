@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Github, Linkedin, MessageSquare, Send, Check, Sparkles, Loader2 } from 'lucide-react';
+import { Mail, Github, Linkedin, MessageSquare, Send, Check, Loader2 } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
@@ -55,7 +55,6 @@ export default function Contact() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
           >
-            <Sparkles className="w-3.5 h-3.5" />
             <span>06 / TRANSMISSION PATHWAY</span>
           </motion.div>
           

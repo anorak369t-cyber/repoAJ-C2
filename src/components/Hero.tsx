@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, ArrowRight, Download, Send, X, FileText, Lock } from 'lucide-react';
+import { ArrowRight, Download, Send, X, FileText, Lock } from 'lucide-react';
 import Magnetic from './Magnetic';
 import { HERO_DATA } from '../data';
 import { downloadProfessionalCV } from '../utils/pdfGenerator';
@@ -158,7 +158,6 @@ export default function Hero() {
             variants={itemVariants}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-red-500/20 bg-red-500/5 text-red-400 text-xs font-semibold tracking-wider uppercase mb-6 shadow-[0_0_15px_rgba(239,68,68,0.1)] hover:border-red-500/40 transition-all duration-300"
           >
-            <Sparkles className="w-3.5 h-3.5 animate-pulse" />
             <span>Available for Collaborations</span>
           </motion.div>
 
@@ -283,7 +282,6 @@ export default function Hero() {
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-white tracking-wide font-sans flex items-center gap-2">
                     <span>Authorized Download Only</span>
-                    <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
                   </h3>
                   <p className="mt-2 text-zinc-400 text-xs sm:text-sm font-normal leading-relaxed">
                     Access to Atamba Joel's professional CV is restricted to authorized personnel. Please enter the required 4-digit passcode to proceed with the download.

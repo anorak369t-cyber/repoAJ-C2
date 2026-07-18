@@ -57,48 +57,138 @@ export default function App() {
 
             {/* Main Content Sections */}
             <main>
-              {/* Hero Showcase Section (handles its own entrance on mount) */}
-              <Hero />
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`hero-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Hero Showcase Section (handles its own entrance on mount) */}
+                  <Hero />
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Split Bio & Counters Section */}
-              <ScrollReveal>
-                <About />
-              </ScrollReveal>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`about-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Split Bio & Counters Section */}
+                  <ScrollReveal>
+                    <About />
+                  </ScrollReveal>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Competencies Chip Deck Section */}
-              <ScrollReveal>
-                <Skills />
-              </ScrollReveal>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`skills-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Competencies Chip Deck Section */}
+                  <ScrollReveal>
+                    <Skills />
+                  </ScrollReveal>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Shared Layout Projects Showcase */}
-              <ScrollReveal>
-                <Projects />
-              </ScrollReveal>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`projects-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Shared Layout Projects Showcase */}
+                  <ScrollReveal>
+                    <Projects />
+                  </ScrollReveal>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Leadership timeline Section */}
-              <ScrollReveal>
-                <Experience />
-              </ScrollReveal>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`experience-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Leadership timeline Section */}
+                  <ScrollReveal>
+                    <Experience />
+                  </ScrollReveal>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Certificates Credentials Grid */}
-              <ScrollReveal>
-                <Certifications />
-              </ScrollReveal>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`certs-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Certificates Credentials Grid */}
+                  <ScrollReveal>
+                    <Certifications />
+                  </ScrollReveal>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* GitHub Analytical Dashboard Section */}
-              <ScrollReveal>
-                <GitHubTracker />
-              </ScrollReveal>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`github-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* GitHub Analytical Dashboard Section */}
+                  <ScrollReveal>
+                    <GitHubTracker />
+                  </ScrollReveal>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Reviews Slide Deck */}
-              <ScrollReveal>
-                <Testimonials />
-              </ScrollReveal>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`testimonials-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Reviews Slide Deck */}
+                  <ScrollReveal>
+                    <Testimonials />
+                  </ScrollReveal>
+                </motion.div>
+              </AnimatePresence>
 
-              {/* Morphing Contact Form Box */}
-              <ScrollReveal>
-                <Contact />
-              </ScrollReveal>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`contact-${theme}`}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {/* Morphing Contact Form Box */}
+                  <ScrollReveal>
+                    <Contact />
+                  </ScrollReveal>
+                </motion.div>
+              </AnimatePresence>
             </main>
 
             {/* Minimal Footnotes Footer */}

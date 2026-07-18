@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Github, Users, BookOpen, Star, Sparkles, Search, GitPullRequest, GitCommit, Calendar, Flame, Trophy } from 'lucide-react';
+import { Github, Users, BookOpen, Star, Search, GitPullRequest, GitCommit, Calendar, Flame, Trophy } from 'lucide-react';
 import { GitHubStats } from '../types';
 
 export default function GitHubTracker() {
-  const [username, setUsername] = useState('joel-atamba');
+  const [username, setUsername] = useState('hasty-joel');
   const [searchInput, setSearchInput] = useState('');
   const [stats, setStats] = useState<GitHubStats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -122,7 +122,6 @@ export default function GitHubTracker() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
             >
-              <Sparkles className="w-3.5 h-3.5" />
               <span>05 / ANALYTICAL INTEGRATION</span>
             </motion.div>
             

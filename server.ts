@@ -228,11 +228,11 @@ app.get("/api/github/:username", async (req, res) => {
   const lowercaseUsername = username.toLowerCase();
   
   // High-fidelity fallback for Atamba Joel specifically
-  const isJoel = lowercaseUsername === "joel-atamba" || lowercaseUsername === "joelatamba" || lowercaseUsername === "hasty0joel" || lowercaseUsername === "atamba-joel" || lowercaseUsername === "atambajoel";
+  const isJoel = lowercaseUsername === "joel-atamba" || lowercaseUsername === "joelatamba" || lowercaseUsername === "hasty-joel" || lowercaseUsername === "hasty0joel" || lowercaseUsername === "atamba-joel" || lowercaseUsername === "atambajoel";
   
-  const joelCalendarData = getCalendarAndStreaks("joel-atamba");
+  const joelCalendarData = getCalendarAndStreaks(username);
   const fallbackJoelData = {
-    username: "joel-atamba",
+    username: username,
     name: "Atamba Joel",
     avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
     bio: "Full-Stack Developer | President of STAHIZA ICT Club | Student passionate about AI & Web Engineering",

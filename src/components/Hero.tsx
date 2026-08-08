@@ -51,7 +51,7 @@ export default function Hero() {
   };
 
   const handleConfirmDownload = () => {
-    if (password.trim() === '3145') {
+    if (password.trim() === '31415') {
       handleDownloadCV();
       setShowConfirmModal(false);
       setPassword('');
@@ -284,7 +284,7 @@ export default function Hero() {
                     <span>Authorized Download Only</span>
                   </h3>
                   <p className="mt-2 text-zinc-400 text-xs sm:text-sm font-normal leading-relaxed">
-                    Access to Atamba Joel's professional CV is restricted to authorized personnel. Please enter the required 4-digit passcode to proceed with the download.
+                    Access to Atamba Joel's professional CV is restricted to authorized personnel. Please enter the required security passcode to proceed with the download.
                   </p>
                 </div>
               </div>
@@ -298,7 +298,7 @@ export default function Hero() {
                   <input
                     type="password"
                     maxLength={10}
-                    placeholder="••••"
+                    placeholder="•••••"
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);

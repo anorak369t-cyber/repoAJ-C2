@@ -59,7 +59,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: "The STAHIZA ICT Club Hub stands as a digital beacon for student developers at Standard High School Zzana. It features collaborative workspaces, a shared repository for study materials, an announcements channel for coding bootcamps, and an interactive showcase of student-made hardware and software innovations. Built with a user-centric design approach from Figma wireframe concepts.",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
     tags: ["React", "TypeScript", "Tailwind CSS", "UI/UX Design", "Express"],
-    liveUrl: "https://stahiza-ict-club.vercel.app",
+    liveUrl: "https://ict-club-hub-stahiza.vercel.app/",
     githubUrl: "https://github.com/joel-atamba/stahiza-ict-club-hub",
     highlights: [
       "Real-time resource sharing boards for students",
@@ -75,7 +75,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: "STAHIZA Entertainment Desk is a highly custom digital interface tailored for school social events and entertainment assemblies. It features a real-time song request system, an event scheduler for school talent shows, and voting polls for campus competitions, complete with a clean dark-mode visual player theme and intuitive controls.",
     image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80",
     tags: ["React", "TypeScript", "Tailwind CSS", "Interaction Design", "Node.js"],
-    liveUrl: "https://stahiza-entertainment.vercel.app",
+    liveUrl: "https://ict-club-hub-stahiza.vercel.app/",
     githubUrl: "https://github.com/joel-atamba/stahiza-ent-desk",
     highlights: [
       "Real-time student crowd song voting and request queue system",
@@ -107,7 +107,7 @@ export const PROJECTS_DATA: Project[] = [
     longDescription: "Laceon AK Stitches is a sophisticated custom catalog web application built for high-end tailoring. It integrates an elegant interactive design portfolio, custom fit measurement profiles, and a bespoke appointment reservation interface that handles fabric choices, style specs, and delivery dates.",
     image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80",
     tags: ["React", "Tailwind CSS", "Figma Prototyping", "Visual Design", "EmailJS"],
-    liveUrl: "https://laceon-ak-stitches.vercel.app",
+    liveUrl: "https://laceon-ak-stiches.vercel.app/",
     githubUrl: "https://github.com/joel-atamba/laceon-ak-stitches",
     highlights: [
       "Premium, high-fashion typography styling and minimal layout design",

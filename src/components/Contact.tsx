@@ -129,7 +129,7 @@ export default function Contact() {
 
               {/* WhatsApp */}
               <a 
-                href="https://wa.me/2567672702"
+                href="https://wa.me/256760672702"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
@@ -139,7 +139,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">WhatsApp Message</span>
-                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">+256 708 304 123</span>
+                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">+256 760 672 702</span>
                 </div>
               </a>
 

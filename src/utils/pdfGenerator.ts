@@ -55,7 +55,7 @@ export function downloadProfessionalCV() {
   // Contact details as a nice horizontal row in header
   y += 6;
   setBodyStyle(8.5, bodyColor);
-  const contactText = `Email: hasty0joel@gmail.com   |   Location: Kampala, Uganda   |   GitHub: github.com/joel-atamba`;
+  const contactText = `Email: hasty0joel@gmail.com   |   Phone: +256 760 672 702   |   GitHub: github.com/joel-atamba`;
   doc.text(contactText, leftMargin, y);
 
   // Thick elegant dividing line between Header and Columns

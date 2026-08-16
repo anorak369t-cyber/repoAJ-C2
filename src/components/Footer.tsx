@@ -67,7 +67,7 @@ export default function Footer() {
               <Linkedin className="w-4 h-4" />
             </a>
             <a 
-              href="https://wa.me/256708304123" 
+              href="https://wa.me/256760672702" 
               target="_blank" 
               rel="noreferrer" 
               className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
@@ -91,9 +91,9 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-1.5 text-zinc-500 hover:text-zinc-300 transition-colors">
               <span className="text-zinc-600 font-bold">WHATSAPP:</span>
-              <span className="text-zinc-400">+256 708 304 123</span>
+              <span className="text-zinc-400">+256 760 672 702</span>
               <button 
-                onClick={() => handleCopy('+256708304123', '+256 708 304 123')} 
+                onClick={() => handleCopy('+256760672702', '+256 760 672 702')} 
                 className="p-1 rounded hover:bg-white/5 text-zinc-500 hover:text-cyan-400 transition-colors cursor-pointer"
                 title="Copy WhatsApp Link"
               >

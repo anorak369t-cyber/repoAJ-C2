@@ -1,246 +1,265 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Cpu, Terminal, ShieldCheck, Activity, Zap, CheckCircle2, Radio, Server, Code, Wifi } from 'lucide-react';
+import { 
+  Layers, 
+  PenTool, 
+  Layout, 
+  Code2, 
+  Sparkles, 
+  CheckCircle2, 
+  SlidersHorizontal,
+  Compass,
+  MonitorCheck
+} from 'lucide-react';
 
 interface LoadingScreenProps {
   onComplete: () => void;
 }
 
-const systemLogs = [
-  "INITIALIZING NEURAL CORE BUS...",
-  "ESTABLISHING GITHUB PULSE TELEMETRY...",
-  "CALIBRATING FULL-STACK ROUTING ENGINES...",
-  "COMPILING PORTFOLIO EXHIBIT MODULES...",
-  "VERIFYING SECURITY TOKENS & INTERACTIVE SUITE...",
-  "SYSTEM ONLINE // ACCESS GRANTED"
+const designSystemStages = [
+  {
+    phase: "01. TOKENS",
+    title: "RESOLVING DESIGN SYSTEM TOKENS",
+    detail: "colors: cyan-400, slate-900 | font: sans, mono | radius: 16px"
+  },
+  {
+    phase: "02. VECTORS",
+    title: "COMPUTING BEZIER PATHS & WIREFRAMES",
+    detail: "interpolating svg paths | 8pt baseline grid alignment"
+  },
+  {
+    phase: "03. AUTO-LAYOUT",
+    title: "CALCULATING FLEX HIERARCHY & CONSTRAINTS",
+    detail: "viewport: 1440x900 responsive | z-index layers verified"
+  },
+  {
+    phase: "04. COMPONENT DOM",
+    title: "HYDRATING REACT FIBER & MOTION GRAPH",
+    detail: "mounting interaction hooks | 60fps gpu acceleration"
+  },
+  {
+    phase: "05. READY",
+    title: "CANVAS MOUNTED // READY TO EXPLORE",
+    detail: "welcome to atamba joel's digital portfolio"
+  }
 ];
 
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
-  const [logIndex, setLogIndex] = useState(0);
-  const [activeBlocks, setActiveBlocks] = useState(1);
+  const [stageIndex, setStageIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    // Progress progression without raw numbers
-    const interval = setInterval(() => {
-      setActiveBlocks((prev) => {
-        if (prev >= 16) {
-          clearInterval(interval);
-          setLogIndex(systemLogs.length - 1);
-          setTimeout(() => {
-            setIsDone(true);
-            setTimeout(onComplete, 700); // Shutter animation completion
-          }, 500);
-          return 16;
-        }
+    const startTime = Date.now();
+    const duration = 2100; // 2.1s smooth, non-blocking sequence
 
-        const next = prev + 1;
-        const nextLogIdx = Math.min(
-          Math.floor((next / 16) * systemLogs.length),
-          systemLogs.length - 1
-        );
-        setLogIndex(nextLogIdx);
-        return next;
-      });
-    }, 110);
+    const timer = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min(elapsed / duration, 1);
+      const currentProgress = Math.floor(pct * 100);
 
-    return () => clearInterval(interval);
+      setProgress(currentProgress);
+
+      const nextStage = Math.min(
+        Math.floor(pct * designSystemStages.length),
+        designSystemStages.length - 1
+      );
+      setStageIndex(nextStage);
+
+      if (pct >= 1) {
+        clearInterval(timer);
+        setTimeout(() => {
+          setIsDone(true);
+          setTimeout(onComplete, 600); // Fluid canvas dissolve
+        }, 300);
+      }
+    }, 30);
+
+    return () => clearInterval(timer);
   }, [onComplete]);
+
+  const currentStage = designSystemStages[stageIndex];
 
   return (
     <AnimatePresence>
       {!isDone && (
-        <div id="loading-screen" className="fixed inset-0 z-50 overflow-hidden pointer-events-auto select-none bg-[#030712] font-mono text-zinc-300">
-          {/* Top Shutter Door */}
-          <motion.div
-            initial={{ y: "0%" }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 0.7, ease: [0.77, 0, 0.175, 1] }}
-            className="absolute top-0 left-0 right-0 h-1/2 bg-[#030712] border-b border-cyan-500/20 z-10 overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(6,182,212,0.15),transparent_75%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_90%,rgba(6,182,212,0.15)_100%)]" />
-          </motion.div>
+        <motion.div
+          id="loading-screen"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0, scale: 0.98 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-50 overflow-hidden pointer-events-auto select-none bg-[#090d16] font-sans text-zinc-200 flex flex-col justify-between"
+        >
+          {/* Subtle Designer Dot Matrix Blueprint Canvas Grid */}
+          <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1.2px,transparent_1.2px)] [background-size:24px_24px] opacity-35 pointer-events-none" />
 
-          {/* Bottom Shutter Door */}
-          <motion.div
-            initial={{ y: "0%" }}
-            exit={{ y: "100%" }}
-            transition={{ duration: 0.7, ease: [0.77, 0, 0.175, 1] }}
-            className="absolute bottom-0 left-0 right-0 h-1/2 bg-[#030712] border-t border-cyan-500/20 z-10 overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(6,182,212,0.15),transparent_75%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_top,transparent_90%,rgba(6,182,212,0.15)_100%)]" />
-          </motion.div>
+          {/* Precision Alignment Crosshairs (Top-Left, Top-Right, Bottom-Left, Bottom-Right) */}
+          <div className="absolute top-6 left-6 text-zinc-700 font-mono text-[9px] pointer-events-none hidden sm:block">
+            + [x: 0, y: 0]
+          </div>
+          <div className="absolute top-6 right-6 text-zinc-700 font-mono text-[9px] pointer-events-none hidden sm:block">
+            + [x: 1440, y: 0]
+          </div>
+          <div className="absolute bottom-6 left-6 text-zinc-700 font-mono text-[9px] pointer-events-none hidden sm:block">
+            + [x: 0, y: 900]
+          </div>
+          <div className="absolute bottom-6 right-6 text-zinc-700 font-mono text-[9px] pointer-events-none hidden sm:block">
+            + [x: 1440, y: 900]
+          </div>
 
-          {/* Main Cyber Holographic Viewport */}
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 0.96 }}
-            transition={{ duration: 0.35 }}
-            className="relative z-20 w-full h-full flex flex-col items-center justify-between p-6 sm:p-10"
-          >
-            {/* Cyber Grid Background */}
-            <div className="absolute inset-0 bg-[radial-gradient(#082f49_1px,transparent_1px)] [background-size:24px_24px] opacity-25 pointer-events-none" />
+          {/* Ambient Design Studio Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] rounded-full bg-cyan-500/10 blur-[130px] pointer-events-none -z-10" />
 
-            {/* Scanning Laser Beam Effect */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
-              <motion.div
-                animate={{ y: ["-100%", "100%"] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-                className="w-full h-32 bg-gradient-to-b from-transparent via-cyan-400/30 to-transparent border-b border-cyan-400"
-              />
+          {/* TOP UI/UX WORKSPACE TOOLBAR */}
+          <div className="relative z-20 w-full max-w-5xl mx-auto px-6 sm:px-10 pt-7 flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/5 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-semibold text-[11px]">
+                <Layout className="w-3.5 h-3.5" />
+                <span>CANVAS // ATAMBA JOEL</span>
+              </div>
+              <span className="hidden md:inline text-zinc-600">|</span>
+              <span className="hidden md:flex items-center gap-1.5 text-zinc-400 text-[11px]">
+                <Layers className="w-3 h-3 text-cyan-400" /> UI/UX ARCHITECT
+              </span>
             </div>
 
-            {/* TOP HUD TELEMETRY BAR */}
-            <div className="w-full max-w-6xl flex items-center justify-between text-[10px] tracking-widest text-cyan-400/80 border-b border-cyan-500/15 pb-3 z-10">
-              <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-                <span className="font-bold text-cyan-300 uppercase tracking-widest">[ SYSTEM // ATAMBA JOEL ]</span>
-              </div>
+            {/* Design System Status Badges */}
+            <div className="flex items-center gap-2 sm:gap-3 text-[10px]">
+              <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-800/80 border border-white/5 text-zinc-300">
+                <SlidersHorizontal className="w-2.5 h-2.5 text-cyan-400" /> 8PT GRID
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                {progress < 100 ? "COMPILING" : "RENDERED"}
+              </span>
+            </div>
+          </div>
+
+          {/* CENTER ARTBOARD STAGE - Figma/Creative Vector Bounding Box */}
+          <div className="relative z-20 w-full max-w-lg mx-auto px-6 flex flex-col items-center justify-center my-auto">
+            
+            {/* The Precision Artboard Frame with Corner Anchor Nodes */}
+            <div className="relative w-72 sm:w-80 p-6 sm:p-8 rounded-2xl bg-zinc-900/60 backdrop-blur-xl border border-cyan-500/30 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
               
-              <div className="hidden md:flex items-center gap-6 text-zinc-400">
-                <span className="flex items-center gap-1.5"><Terminal className="w-3.5 h-3.5 text-cyan-400" /> STAHIZA_OS</span>
-                <span className="flex items-center gap-1.5"><Cpu className="w-3.5 h-3.5 text-cyan-400" /> CORE_LOAD</span>
-                <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> ENCRYPTED</span>
+              {/* Figma-Style Bounding Box Handles */}
+              <div className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-cyan-400 border border-black rounded-sm shadow-sm" />
+              <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-cyan-400 border border-black rounded-sm shadow-sm" />
+              <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-cyan-400 border border-black rounded-sm shadow-sm" />
+              <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-cyan-400 border border-black rounded-sm shadow-sm" />
+
+              {/* Floating Layer Tag */}
+              <div className="absolute -top-3.5 left-6 px-2.5 py-0.5 rounded bg-cyan-500 text-black font-mono text-[9px] font-bold tracking-wider uppercase flex items-center gap-1 shadow-md">
+                <Compass className="w-2.5 h-2.5" />
+                <span>Frame: #atamba-portfolio</span>
               </div>
 
-              <div className="flex items-center gap-2">
-                <Wifi className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-                <span>KAMPALA_NODE</span>
-              </div>
-            </div>
-
-            {/* CENTER HOLOGRAPHIC REACTOR & SOUND/DATA OSCILLOSCOPE */}
-            <div className="my-auto relative flex flex-col items-center justify-center z-10">
-              {/* Sci-Fi Corner Frame Alignment Brackets */}
-              <div className="absolute -inset-10 sm:-inset-16 pointer-events-none">
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyan-400/70" />
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-cyan-400/70" />
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-cyan-400/70" />
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-cyan-400/70" />
-              </div>
-
-              {/* Rotating Holographic Reactor Rings */}
-              <div className="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center">
-                {/* Outer Dashed Orbiting Ring */}
+              {/* Central Vector Geometric Monogram with Pen Tool Path */}
+              <div className="relative w-28 h-28 mx-auto flex items-center justify-center">
+                {/* Rotating Vector Node Ring */}
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 rounded-full border border-dashed border-cyan-400/40"
+                  transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 rounded-full border border-dashed border-cyan-500/30"
                 />
 
-                {/* Counter Rotating Inner Ring with tick marks */}
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-3 rounded-full border-2 border-dotted border-cyan-500/30"
-                />
+                {/* Outer Dimension Ring with Anchor Nodes */}
+                <div className="absolute inset-2 rounded-2xl border border-white/10 flex items-center justify-center">
+                  <div className="absolute -top-1 w-2 h-2 bg-cyan-400 rounded-full" />
+                  <div className="absolute -bottom-1 w-2 h-2 bg-cyan-400 rounded-full" />
+                  <div className="absolute -left-1 w-2 h-2 bg-cyan-400 rounded-full" />
+                  <div className="absolute -right-1 w-2 h-2 bg-cyan-400 rounded-full" />
+                </div>
 
-                {/* Pulsing Outer Glow Ring */}
-                <motion.div
-                  animate={{ scale: [0.95, 1.05, 0.95], opacity: [0.3, 0.7, 0.3] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-6 rounded-full bg-cyan-500/10 border border-cyan-400/30 blur-sm"
-                />
-
-                {/* Central Cyber Monogram Badge */}
-                <div className="relative z-10 flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-[#050b18]/90 backdrop-blur-xl border border-cyan-400/40 shadow-[0_0_35px_rgba(6,182,212,0.35)]">
-                  <motion.span
-                    animate={{ scale: [0.97, 1.03, 0.97] }}
-                    transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                    className="text-3xl sm:text-4xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-cyan-400 font-sans"
-                  >
+                {/* Central Brand Badge */}
+                <div className="relative z-10 w-20 h-20 rounded-xl bg-gradient-to-br from-cyan-950/80 to-slate-900/90 border border-cyan-400/40 flex flex-col items-center justify-center shadow-inner">
+                  <span className="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-cyan-200 to-cyan-400 font-sans">
                     AJ
-                  </motion.span>
-
-                  <div className="flex items-center gap-1 mt-1 text-[9px] text-cyan-400/90 font-mono tracking-widest">
-                    <Radio className="w-2.5 h-2.5 animate-pulse" />
-                    <span>{activeBlocks === 16 ? "ACTIVE" : "LOADING"}</span>
+                  </span>
+                  <div className="flex items-center gap-1 text-[8px] font-mono text-cyan-400/80 mt-0.5">
+                    <PenTool className="w-2.5 h-2.5" />
+                    <span>UI / UX</span>
                   </div>
                 </div>
+
+                {/* Animated Pen Tool Cursor Floating on Path */}
+                <motion.div
+                  animate={{
+                    x: [18, 38, 22, -18, -32, 18],
+                    y: [-28, 12, 36, 28, -16, -28],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute z-20 pointer-events-none text-cyan-300 drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]"
+                >
+                  <PenTool className="w-4 h-4 fill-cyan-400/30" />
+                </motion.div>
               </div>
 
-              {/* Geeky Oscilloscope / Frequency Data Waveform */}
-              <div className="mt-8 flex items-center gap-1.5 h-10 px-6 py-2 rounded-xl bg-cyan-950/20 border border-cyan-500/20 backdrop-blur-md">
-                {Array.from({ length: 24 }).map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{
-                      height: activeBlocks === 16 ? ['8px', '28px', '12px', '32px', '8px'] : ['4px', '18px', '6px', '24px', '4px'],
-                      backgroundColor: i < activeBlocks + 4 ? '#22d3ee' : '#1e293b'
-                    }}
-                    transition={{
-                      duration: 0.6 + (i % 5) * 0.15,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="w-1 rounded-full shadow-[0_0_8px_rgba(34,211,238,0.5)]"
-                  />
-                ))}
-              </div>
-
-              {/* High-Tech Telemetry Module Blocks (No numbers!) */}
-              <div className="mt-6 flex flex-col items-center">
+              {/* Design System Token Swatches */}
+              <div className="mt-5 pt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-zinc-400">
                 <div className="flex items-center gap-1.5">
-                  {Array.from({ length: 16 }).map((_, idx) => {
-                    const isActive = idx < activeBlocks;
-                    const isLast = idx === 15;
-                    return (
-                      <motion.div
-                        key={idx}
-                        className={`h-3 w-2.5 sm:w-3.5 rounded-sm transition-all duration-300 ${
-                          isActive
-                            ? isLast
-                              ? 'bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]'
-                              : 'bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]'
-                            : 'bg-zinc-800/60 border border-white/5'
-                        }`}
-                      />
-                    );
-                  })}
+                  <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_6px_rgba(6,182,212,0.7)]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-sky-500" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
                 </div>
+                <span className="text-zinc-500">AutoLayout: flex-col</span>
+              </div>
+            </div>
 
-                <div className="mt-2 flex items-center gap-2 text-[10px] text-cyan-400/70 font-mono tracking-widest uppercase">
-                  <span>[</span>
-                  <span className="text-cyan-300 font-bold">MODULE_SYNC</span>
-                  <span>::</span>
-                  <span className="text-emerald-400">{activeBlocks === 16 ? "COMPLETE" : "IN_PROGRESS"}</span>
-                  <span>]</span>
+            {/* Design Workflow Pipeline Progress */}
+            <div className="mt-8 w-full max-w-sm flex flex-col items-center">
+              {/* Progress Bar with Design Metric Display */}
+              <div className="w-full">
+                <div className="flex items-center justify-between text-[11px] font-mono mb-2">
+                  <span className="text-cyan-400 font-semibold">{currentStage.phase}</span>
+                  <span className="text-zinc-400">{progress}%</span>
+                </div>
+                
+                <div className="h-1.5 w-full bg-zinc-800/80 rounded-full overflow-hidden border border-white/5 p-[1px]">
+                  <motion.div
+                    className="h-full bg-gradient-to-r from-cyan-500 via-sky-400 to-emerald-400 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.6)]"
+                    style={{ width: `${progress}%` }}
+                    transition={{ ease: "easeOut" }}
+                  />
                 </div>
               </div>
 
-              {/* Console Diagnostic Log Terminal Output */}
-              <div className="mt-6 h-9 flex items-center justify-between px-4 py-2 rounded-lg bg-[#070e20] border border-cyan-500/25 backdrop-blur-md max-w-xs sm:max-w-md w-full shadow-lg">
-                <div className="flex items-center gap-2.5 overflow-hidden text-ellipsis whitespace-nowrap">
-                  {activeBlocks === 16 ? (
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 animate-bounce" />
+              {/* Dynamic Design Phase Details */}
+              <div className="mt-4 text-center">
+                <h3 className="text-xs font-mono font-bold text-zinc-200 uppercase tracking-wider flex items-center justify-center gap-1.5">
+                  {progress === 100 ? (
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 inline" />
                   ) : (
-                    <Activity className="w-4 h-4 text-cyan-400 shrink-0 animate-spin" />
+                    <Code2 className="w-3.5 h-3.5 text-cyan-400 inline" />
                   )}
-                  <span className="text-[11px] font-mono text-cyan-200 tracking-wider uppercase truncate">
-                    {systemLogs[logIndex]}
-                  </span>
-                </div>
-                <span className="w-2 h-3 bg-cyan-400 animate-pulse ml-2 shrink-0" />
+                  <span>{currentStage.title}</span>
+                </h3>
+                <p className="text-[10px] font-mono text-zinc-500 mt-1 max-w-xs truncate">
+                  {currentStage.detail}
+                </p>
               </div>
             </div>
 
-            {/* BOTTOM HUD FOOTER */}
-            <div className="w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between text-[10px] text-zinc-500 border-t border-cyan-500/15 pt-3 gap-2 z-10">
-              <div className="flex items-center gap-2">
-                <Code className="w-3.5 h-3.5 text-cyan-400" />
-                <span className="text-cyan-300 font-semibold">ATAMBA JOEL</span>
-                <span>//</span>
-                <span>PRESIDENT OF STAHIZA ICT CLUB</span>
-              </div>
-              <div className="flex items-center gap-3 text-cyan-400/80">
-                <Server className="w-3.5 h-3.5 text-cyan-400" />
-                <span className="flex items-center gap-1"><Zap className="w-3 h-3 text-cyan-400" /> FULL-STACK & AI ARCHITECTURE</span>
-              </div>
+          </div>
+
+          {/* BOTTOM DESIGNER FOOTER METRICS */}
+          <div className="relative z-20 w-full max-w-5xl mx-auto px-6 sm:px-10 pb-7 flex flex-col sm:flex-row items-center justify-between text-[10px] font-mono text-zinc-500 border-t border-white/5 pt-4 gap-2">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-3 h-3 text-cyan-400" />
+              <span>FIGMA PROTOTYPE &amp; REACT FULL-STACK ARCHITECTURE</span>
             </div>
-          </motion.div>
-        </div>
+            <div className="flex items-center gap-3 text-zinc-400">
+              <span className="flex items-center gap-1">
+                <MonitorCheck className="w-3 h-3 text-emerald-400" /> DPI: RETINA 2X
+              </span>
+              <span>•</span>
+              <span>FPS: 60.0</span>
+            </div>
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

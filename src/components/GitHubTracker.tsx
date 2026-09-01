@@ -4,7 +4,7 @@ import { Github, Users, BookOpen, Star, Search, GitPullRequest, GitCommit, Calen
 import { GitHubStats } from '../types';
 
 export default function GitHubTracker() {
-  const [username, setUsername] = useState('hasty-joel');
+  const [username, setUsername] = useState('anorak369t-cyber');
   const [searchInput, setSearchInput] = useState('');
   const [stats, setStats] = useState<GitHubStats | null>(null);
   const [loading, setLoading] = useState(true);

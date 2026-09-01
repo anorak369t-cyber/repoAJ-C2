@@ -31,7 +31,7 @@ export default function Footer() {
         {/* Left Side: Copyright */}
         <div className="text-center md:text-left space-y-1">
           <p className="text-zinc-500 text-xs font-mono uppercase tracking-wider">
-            © 2026 JOEL ATAMBA • All rights reserved
+            © 2026 GROK369 • All rights reserved
           </p>
           <p className="text-zinc-600 text-[10px] font-mono uppercase tracking-widest">
             Built with React + Express + Tailwind CSS
@@ -42,14 +42,14 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-4">
           <div className="flex gap-4 items-center">
             <a 
-              href="mailto:hasty0joel@gmail.com" 
+              href="mailto:anorak369t@gmail.com" 
               className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
               title="Email Direct"
             >
               <Mail className="w-4 h-4" />
             </a>
             <a 
-              href="https://github.com/joel-atamba" 
+              href="https://github.com/anorak369t-cyber" 
               target="_blank" 
               rel="noreferrer" 
               className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
@@ -58,7 +58,7 @@ export default function Footer() {
               <Github className="w-4 h-4" />
             </a>
             <a 
-              href="https://linkedin.com/in/joel-atamba" 
+              href="https://linkedin.com/in/grok369" 
               target="_blank" 
               rel="noreferrer" 
               className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
@@ -67,7 +67,7 @@ export default function Footer() {
               <Linkedin className="w-4 h-4" />
             </a>
             <a 
-              href="https://wa.me/256760672702" 
+              href="https://wa.me/256740434644" 
               target="_blank" 
               rel="noreferrer" 
               className="p-2 rounded-lg border border-white/5 hover:border-cyan-500/30 text-zinc-500 hover:text-cyan-400 bg-[#0f172a] hover:bg-cyan-950/10 transition-all cursor-pointer"
@@ -80,9 +80,9 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] sm:text-xs font-mono">
             <div className="flex items-center gap-1.5 text-zinc-500 hover:text-zinc-300 transition-colors">
               <span className="text-zinc-600 font-bold">MAIL:</span>
-              <span className="text-zinc-400">hasty0joel@gmail.com</span>
+              <span className="text-zinc-400">anorak369t@gmail.com</span>
               <button 
-                onClick={() => handleCopy('hasty0joel@gmail.com', 'hasty0joel@gmail.com')} 
+                onClick={() => handleCopy('anorak369t@gmail.com', 'anorak369t@gmail.com')} 
                 className="p-1 rounded hover:bg-white/5 text-zinc-500 hover:text-cyan-400 transition-colors cursor-pointer"
                 title="Copy Email"
               >
@@ -91,9 +91,9 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-1.5 text-zinc-500 hover:text-zinc-300 transition-colors">
               <span className="text-zinc-600 font-bold">WHATSAPP:</span>
-              <span className="text-zinc-400">+256 760 672 702</span>
+              <span className="text-zinc-400">+256 740 434 644</span>
               <button 
-                onClick={() => handleCopy('+256760672702', '+256 760 672 702')} 
+                onClick={() => handleCopy('+256740434644', '+256 740 434 644')} 
                 className="p-1 rounded hover:bg-white/5 text-zinc-500 hover:text-cyan-400 transition-colors cursor-pointer"
                 title="Copy WhatsApp Link"
               >

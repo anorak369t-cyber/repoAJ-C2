@@ -75,7 +75,7 @@ export default function Contact() {
           {/* Left Column: Direct Links */}
           <div className="lg:col-span-5 space-y-6">
             <p className="text-zinc-400 text-sm sm:text-base font-normal leading-relaxed mb-8">
-              Whether you want to discuss a new software project, ask about my work with STAHIZA ICT Club, or discuss academic opportunities—my inbox is always open.
+              Whether you want to discuss a new software project, ask about our work with Vortex-labs, or discuss academic opportunities—our inbox is always open.
             </p>
 
             {/* Social channels grid */}
@@ -83,7 +83,7 @@ export default function Contact() {
               
               {/* Email */}
               <a 
-                href="mailto:hasty0joel@gmail.com"
+                href="mailto:anorak369t@gmail.com"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
               >
                 <div className="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:bg-cyan-500/20 transition-colors">
@@ -91,13 +91,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">Email Direct</span>
-                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">hasty0joel@gmail.com</span>
+                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">anorak369t@gmail.com</span>
                 </div>
               </a>
 
               {/* GitHub */}
               <a 
-                href="https://github.com/hasty-joel"
+                href="https://github.com/anorak369t-cyber"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
@@ -106,14 +106,14 @@ export default function Contact() {
                   <Github className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">GitHub Repository</span>
-                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">github.com/joel-atamba</span>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">GitHub Repo</span>
+                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">github.com/anorak369t-cyber</span>
                 </div>
               </a>
 
               {/* LinkedIn */}
               <a 
-                href="https://linkedin.com/in/hasty01"
+                href="https://linkedin.com/in/grok369"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
@@ -123,13 +123,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">LinkedIn Profile</span>
-                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">linkedin.com/in/joel-atamba</span>
+                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">linkedin.com/in/grok369</span>
                 </div>
               </a>
 
               {/* WhatsApp */}
               <a 
-                href="https://wa.me/256760672702"
+                href="https://wa.me/256740434644"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0f172a] hover:border-cyan-500/30 group transition-all"
@@ -139,7 +139,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">WhatsApp Message</span>
-                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">+256 760 672 702</span>
+                  <span className="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">+256 740 434 644</span>
                 </div>
               </a>
 
@@ -234,7 +234,7 @@ export default function Contact() {
                         </>
                       ) : (
                         <>
-                          <span>Send Secure Message</span>
+                          <span>Send a Message Securely</span>
                           <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </>
                       )}
@@ -260,7 +260,7 @@ export default function Contact() {
 
                     <h3 className="text-xl font-bold text-white tracking-wide font-sans mb-2">Message Encoded!</h3>
                     <p className="text-zinc-400 text-sm font-normal max-w-sm mb-6 leading-relaxed">
-                      Thank you for reaching out! Your submission has successfully parsed, and Atamba Joel's digital relays have cataloged your interest. Expect a response soon.
+                      Thank you for reaching out! Your submission has successfully parsed, and Vortex  lab's digital relays have cataloged your interest. Expect a response soon.
                     </p>
 
                     <button

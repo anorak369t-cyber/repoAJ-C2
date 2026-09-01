@@ -69,7 +69,7 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-bold tracking-tight text-white font-sans uppercase"
           >
-            A Student with a Vision
+            A developer with a Vision
           </motion.h2>
         </div>
 
@@ -98,7 +98,7 @@ export default function About() {
                 <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 relative z-10">
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                    <span>STAHIZA PRESIDENT</span>
+                    <span>Vortex-labs PRESIDENT</span>
                   </div>
                   <span>UGANDA</span>
                 </div>
@@ -135,7 +135,7 @@ export default function About() {
 
                   {/* Tiny mock console output */}
                   <div className="font-mono text-[9px] text-zinc-600">
-                    <span className="text-cyan-400">atamba@joel:~$</span> node init.js <br />
+                    <span className="text-cyan-400">Vortex@labs:~$</span> node init.js <br />
                     <span className="text-emerald-500">✔ Portfolios online</span>
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export default function About() {
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-semibold">
                   <Award className="w-3.5 h-3.5 text-red-400" />
-                  <span>Standard High School Zzana (STAHIZA) Leader</span>
+                  <span>Vortex dynamics labs (VD) Grok369-cyber</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/2 text-zinc-400 text-xs font-semibold">
                   <Code className="w-3.5 h-3.5 text-sky-400" />
@@ -201,7 +201,7 @@ export default function About() {
               className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-amber-500/15 bg-amber-500/5 text-amber-400 text-[10px] font-mono tracking-widest uppercase mb-3"
             >
               <Camera className="w-3.5 h-3.5" />
-              <span>CRAFT & COMMUNITY IN FOCUS</span>
+              <span>INNOVATION & CREATIVITY IN FOCUS</span>
             </motion.div>
             <motion.h3 
               initial={{ opacity: 0, y: 15 }}
@@ -219,7 +219,7 @@ export default function About() {
               transition={{ delay: 0.2 }}
               className="text-zinc-500 text-sm max-w-xl mt-2 font-normal leading-relaxed"
             >
-              An authentic behind-the-scenes look at my creative processes—from wireframe layout sprints to full-stack code deployments and Standard High School Zzana ICT Club mentorship.
+              An authentic behind-the-scenes look at our creative processes—from wireframe layout sprints to full-stack code deployments and Vortex ICT labs mentorship.
             </motion.p>
           </div>
 
@@ -232,7 +232,7 @@ export default function About() {
             >
               <img
                 src={joelDesigning}
-                alt="Atamba Joel designing UI/UX on tablet"
+                alt="grok designing UI/UX on tablet"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
               />
@@ -262,7 +262,7 @@ export default function About() {
             >
               <img
                 src={stahizaClub}
-                alt="Atamba Joel leading high school student developers"
+                alt="grok leading high school student developers"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
               />
@@ -277,10 +277,10 @@ export default function About() {
                 </div>
                 <h4 className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight flex items-center gap-2">
                   <Users className="w-4 h-4 text-cyan-400" />
-                  ICT Club Empowerment
+                  ICT Empowerment
                 </h4>
                 <p className="text-zinc-400 text-[11px] sm:text-xs lg:text-sm mt-1 leading-relaxed">
-                  Leading coding bootcamps, hosting custom design workshops, and guiding high school peers through web layout wireframing in Kampala.
+                  Leading coding bootcamps, hosting custom design workshops, and guiding peers through web layout wireframing in Kampala and across the globe.
                 </p>
               </div>
             </div>
@@ -292,7 +292,7 @@ export default function About() {
             >
               <img
                 src={joelCoding}
-                alt="Atamba Joel coding typescript behind monitor"
+                alt="grok coding typescript behind monitor"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 brightness-90 group-hover:brightness-100"
               />

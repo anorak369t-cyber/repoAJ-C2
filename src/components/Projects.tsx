@@ -25,7 +25,7 @@ export default function Projects() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-cyan-500/15 bg-cyan-500/5 text-cyan-400 text-[10px] font-mono tracking-widest uppercase mb-3"
           >
-            <span>SYS // PORTFOLIO EXHIBITS</span>
+            <span>SYS // INNOVATIVE EXHIBITS</span>
           </motion.div>
           
           <motion.h2

@@ -226,7 +226,7 @@ export default function Hero() {
                 className="w-full sm:w-auto px-6 py-3 rounded-xl border border-white/10 hover:border-red-500/50 bg-white/2 hover:bg-red-950/10 text-sm font-semibold text-zinc-300 hover:text-red-300 flex items-center justify-center gap-2 hover:scale-[1.03] transition-all cursor-pointer group"
               >
                 <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-                <span>Download CV</span>
+                <span>Get CV</span>
               </button>
             </Magnetic>
 
@@ -284,7 +284,7 @@ export default function Hero() {
                     <span>Authorized Download Only</span>
                   </h3>
                   <p className="mt-2 text-zinc-400 text-xs sm:text-sm font-normal leading-relaxed">
-                    Access to Atamba Joel's professional CV is restricted to authorized personnel. Please enter the required security passcode to proceed with the download.
+                    Access to Grok369-cyber's professional CV is restricted to authorized personnel. Please enter the required security passcode to proceed with the download.
                   </p>
                 </div>
               </div>
@@ -298,14 +298,14 @@ export default function Hero() {
                   <input
                     type="password"
                     maxLength={10}
-                    placeholder="•••••"
+                    placeholder="•• place ••"
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
                       if (passwordError) setPasswordError('');
                     }}
                     onKeyDown={(e) => {
-                      if (e.key === 'Enter') {
+                      if (e.key === 'Grok') {
                         handleConfirmDownload();
                       }
                     }}

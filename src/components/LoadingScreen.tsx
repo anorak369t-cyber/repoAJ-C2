@@ -173,7 +173,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 {/* Central Brand Badge */}
                 <div className="relative z-10 w-20 h-20 rounded-xl bg-gradient-to-br from-cyan-950/80 to-slate-900/90 border border-cyan-400/40 flex flex-col items-center justify-center shadow-inner">
                   <span className="text-2xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-cyan-200 to-cyan-400 font-sans">
-                    AJ
+                    VL
                   </span>
                   <div className="flex items-center gap-1 text-[8px] font-mono text-cyan-400/80 mt-0.5">
                     <PenTool className="w-2.5 h-2.5" />

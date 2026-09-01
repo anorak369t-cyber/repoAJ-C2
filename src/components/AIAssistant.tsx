@@ -4,9 +4,9 @@ import { MessageSquare, X, Send, User, BrainCircuit, ArrowUpRight } from 'lucide
 import { ChatMessage } from '../types';
 
 const quickPrompts = [
-  "What is STAHIZA ICT Club?",
-  "What are Atamba's core skills?",
-  "Is Atamba available for freelance?",
+  "What is Vortex labs?",
+  "What are Grok's core skills?",
+  "Is Grok available for freelance?",
   "Tell me about the AI Study Assistant"
 ];
 
@@ -16,7 +16,7 @@ export default function AIAssistant() {
     {
       id: 'init',
       role: 'model',
-      text: "Hi there! I am Atamba Joel's AI Digital Twin, powered by Gemini 3.5 Flash. Ask me anything about Atamba Joel's background, leadership at STAHIZA ICT Club, certifications, or custom full-stack projects!",
+      text: "Hi there! I am Grok's AI Digital partner, powered by Gemini 3.5 Flash. Ask me anything about Grok's background, purpose at Vortex labs, certifications, or custom full-stack projects!",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -79,7 +79,7 @@ export default function AIAssistant() {
       const modelMsg: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'model',
-        text: data.text || "I was unable to compile a response, but Joel remains highly motivated and ready to code!",
+        text: data.text || "I was unable to compile a response, but Grok remains highly motivated and ready to code!",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
 
@@ -89,7 +89,7 @@ export default function AIAssistant() {
       const errorMsg: ChatMessage = {
         id: (Date.now() + 1).toString(),
         role: 'model',
-        text: "My neural relays are temporarily congested! However, feel free to reach Joel directly using the contact form below.",
+        text: "My neural relays are temporarily congested! However, feel free to reach Grok directly using the contact form below.",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages((prev) => [...prev, errorMsg]);
@@ -164,7 +164,7 @@ export default function AIAssistant() {
                   <h3 className="text-xs font-bold text-white tracking-wide font-sans">Atamba's AI Twin</h3>
                   <div className="flex items-center gap-1 mt-0.5 text-[9px] font-mono text-zinc-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>GEMINI 3.5 FLASH ONLINE</span>
+                    <span>GEMINI 3.5 FLASH ONLINE (coming soon)</span>
                   </div>
                 </div>
               </div>
@@ -243,7 +243,7 @@ export default function AIAssistant() {
             >
               <input
                 type="text"
-                placeholder="Ask my twin a question..."
+                placeholder="Ask my partner a question..."
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 disabled={generating}

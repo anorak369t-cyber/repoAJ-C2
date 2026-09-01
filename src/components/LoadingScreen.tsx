@@ -150,7 +150,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               {/* Floating Layer Tag */}
               <div className="absolute -top-3.5 left-6 px-2.5 py-0.5 rounded bg-cyan-500 text-black font-mono text-[9px] font-bold tracking-wider uppercase flex items-center gap-1 shadow-md">
                 <Compass className="w-2.5 h-2.5" />
-                <span>Frame: #atamba-portfolio</span>
+                <span>Frame: #vortex-portfolio</span>
               </div>
 
               {/* Central Vector Geometric Monogram with Pen Tool Path */}

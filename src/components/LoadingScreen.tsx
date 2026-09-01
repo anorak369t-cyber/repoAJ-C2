@@ -40,7 +40,7 @@ const designSystemStages = [
   {
     phase: "05. READY",
     title: "CANVAS MOUNTED // READY TO EXPLORE",
-    detail: "welcome to atamba joel's digital portfolio"
+    detail: "welcome to Vortex-labs digital portfolio"
   }
 ];
 
@@ -115,7 +115,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-semibold text-[11px]">
                 <Layout className="w-3.5 h-3.5" />
-                <span>CANVAS // ATAMBA JOEL</span>
+                <span>CANVAS // Vortex-labs</span>
               </div>
               <span className="hidden md:inline text-zinc-600">|</span>
               <span className="hidden md:flex items-center gap-1.5 text-zinc-400 text-[11px]">

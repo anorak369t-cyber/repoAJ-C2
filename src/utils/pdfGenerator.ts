@@ -251,5 +251,5 @@ export function downloadProfessionalCV() {
   doc.text(footerText, pageWidth / 2, pageHeight - 10, { align: 'center' });
 
   // Save Document
-  doc.save('Atamba_Joel_CV.pdf');
+  doc.save('grok369-cv.pdf');
 }

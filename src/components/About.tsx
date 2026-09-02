@@ -111,7 +111,7 @@ export default function About() {
                     
                     {/* Stylized vector representation of face outline / initials */}
                     <div className="text-4xl font-black font-sans tracking-tighter bg-gradient-to-r from-sky-400 via-cyan-200 to-red-400 bg-clip-text text-transparent animate-pulse select-none">
-                      AJ
+                      VL
                     </div>
                   </div>
                   
@@ -128,7 +128,7 @@ export default function About() {
                   
                   <div className="flex items-center gap-2">
                     <GraduationCap className="w-4 h-4 text-cyan-400" />
-                    <span className="text-xs text-zinc-300 font-medium">Standard High School Zzana (STAHIZA)</span>
+                    <span className="text-xs text-zinc-300 font-medium">Vortex labs</span>
                   </div>
 
                   <div className="h-[1px] bg-white/5 my-2" />

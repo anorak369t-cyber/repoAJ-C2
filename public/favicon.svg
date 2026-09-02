@@ -1,72 +1,344 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
   <defs>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF200" />
-      <stop offset="70%" stop-color="#FFCC00" />
-      <stop offset="100%" stop-color="#E5A800" />
+
+    <!-- Background -->
+    <radialGradient id="bg" cx="50%" cy="48%" r="75%">
+      <stop offset="0%" stop-color="#10183b"/>
+      <stop offset="55%" stop-color="#060a1b"/>
+      <stop offset="100%" stop-color="#010207"/>
+    </radialGradient>
+
+    <!-- V gradients -->
+    <linearGradient id="vMain" x1="120" y1="100" x2="390" y2="400">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="18%" stop-color="#9defff"/>
+      <stop offset="45%" stop-color="#2578ff"/>
+      <stop offset="72%" stop-color="#763cff"/>
+      <stop offset="100%" stop-color="#ff3ed8"/>
     </linearGradient>
-    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="50%" stop-color="#D4AF37" />
-      <stop offset="100%" stop-color="#8C6D1F" />
+
+    <linearGradient id="vLeft" x1="130" y1="120" x2="260" y2="380">
+      <stop offset="0%" stop-color="#eaffff"/>
+      <stop offset="25%" stop-color="#49dfff"/>
+      <stop offset="70%" stop-color="#1450ce"/>
+      <stop offset="100%" stop-color="#42208f"/>
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#FF2800" flood-opacity="0.3"/>
+
+    <linearGradient id="vRight" x1="390" y1="110" x2="250" y2="390">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#a8c9ff"/>
+      <stop offset="65%" stop-color="#703cff"/>
+      <stop offset="100%" stop-color="#e52eff"/>
+    </linearGradient>
+
+    <!-- Vortex gradients -->
+    <linearGradient id="cyan" x1="80" y1="100" x2="430" y2="420">
+      <stop stop-color="#00f0ff"/>
+      <stop offset="45%" stop-color="#147cff"/>
+      <stop offset="100%" stop-color="#6b2cff"/>
+    </linearGradient>
+
+    <linearGradient id="magenta" x1="400" y1="100" x2="120" y2="420">
+      <stop stop-color="#ff35e8"/>
+      <stop offset="50%" stop-color="#842cff"/>
+      <stop offset="100%" stop-color="#00e5ff"/>
+    </linearGradient>
+
+    <!-- Glow -->
+    <filter id="blueGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
+
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow
+        dx="0"
+        dy="12"
+        stdDeviation="12"
+        flood-color="#000000"
+        flood-opacity="0.85"/>
+    </filter>
+
   </defs>
 
-  <!-- Outer Ferrari Shield Outline -->
-  <path d="M 12 10 L 88 10 L 88 62 C 88 88 50 114 50 114 C 50 114 12 88 12 62 Z" 
-        fill="url(#shieldGrad)" 
-        stroke="#111111" 
-        stroke-width="3.5" 
-        stroke-linejoin="round"
-        filter="url(#glow)" />
 
-  <!-- Inner Trim -->
-  <path d="M 16 14 L 84 14 L 84 60 C 84 83 50 107 50 107 C 50 107 16 83 16 60 Z" 
-        fill="none" 
-        stroke="#E5A800" 
-        stroke-width="1.2" 
-        opacity="0.6" />
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
 
-  <!-- Italian Tricolore Top Bar -->
-  <g>
-    <!-- Green -->
-    <rect x="14" y="10.5" width="24" height="8" fill="#008C45" />
-    <!-- White -->
-    <rect x="38" y="10.5" width="24" height="8" fill="#FFFFFF" />
-    <!-- Red -->
-    <rect x="62" y="10.5" width="24" height="8" fill="#CD212A" />
-    <!-- Divider lines -->
-    <line x1="14" y1="18.5" x2="86" y2="18.5" stroke="#111111" stroke-width="1.5" />
+
+  <!-- HUD circles -->
+  <circle cx="256" cy="256" r="220"
+    fill="none"
+    stroke="#0c3b9b"
+    stroke-width="1"
+    opacity=".55"/>
+
+  <circle cx="256" cy="256" r="202"
+    fill="none"
+    stroke="#176cff"
+    stroke-width="1.5"
+    opacity=".5"/>
+
+  <circle cx="256" cy="256" r="184"
+    fill="none"
+    stroke="#246eff"
+    stroke-width="2"
+    stroke-dasharray="4 11"
+    opacity=".35"/>
+
+
+  <!-- Outer orbital ring -->
+  <path
+    d="M54 270
+       C75 125 235 47 374 105
+       C465 143 480 252 405 332"
+    fill="none"
+    stroke="url(#cyan)"
+    stroke-width="3"
+    stroke-linecap="round"
+    filter="url(#blueGlow)"/>
+
+  <!-- Purple orbit -->
+  <path
+    d="M70 340
+       C125 438 337 465 435 339
+       C480 280 458 191 394 144"
+    fill="none"
+    stroke="url(#magenta)"
+    stroke-width="3"
+    stroke-linecap="round"
+    filter="url(#blueGlow)"/>
+
+
+  <!-- MAIN VORTEX GLOW -->
+  <g fill="none" stroke-linecap="round">
+
+    <!-- Outer cyan swirl -->
+    <path
+      d="M100 285
+         C86 180 165 96 270 98
+         C385 101 441 200 405 301
+         C373 389 252 434 151 379"
+      stroke="url(#cyan)"
+      stroke-width="20"
+      opacity=".20"
+      filter="url(#strongGlow)"/>
+
+    <path
+      d="M100 285
+         C86 180 165 96 270 98
+         C385 101 441 200 405 301
+         C373 389 252 434 151 379"
+      stroke="url(#cyan)"
+      stroke-width="9"
+      filter="url(#blueGlow)"/>
+
+
+    <!-- Lower magenta swirl -->
+    <path
+      d="M130 340
+         C195 425 353 402 402 301
+         C429 245 397 177 342 148"
+      stroke="url(#magenta)"
+      stroke-width="17"
+      opacity=".20"
+      filter="url(#strongGlow)"/>
+
+    <path
+      d="M130 340
+         C195 425 353 402 402 301
+         C429 245 397 177 342 148"
+      stroke="url(#magenta)"
+      stroke-width="8"
+      filter="url(#blueGlow)"/>
+
+
+    <!-- Inner cyan vortex -->
+    <path
+      d="M165 312
+         C130 244 179 172 250 165
+         C322 158 374 217 353 282
+         C332 345 248 368 197 320
+         C164 289 177 236 220 218
+         C264 199 306 226 302 262"
+      stroke="url(#cyan)"
+      stroke-width="15"
+      opacity=".22"
+      filter="url(#strongGlow)"/>
+
+    <path
+      d="M165 312
+         C130 244 179 172 250 165
+         C322 158 374 217 353 282
+         C332 345 248 368 197 320
+         C164 289 177 236 220 218
+         C264 199 306 226 302 262"
+      stroke="url(#cyan)"
+      stroke-width="7"
+      filter="url(#blueGlow)"/>
+
+
+    <!-- Inner purple vortex -->
+    <path
+      d="M205 300
+         C177 262 197 217 239 204
+         C280 191 315 220 310 255
+         C306 286 267 304 239 284
+         C221 271 224 245 244 237"
+      stroke="url(#magenta)"
+      stroke-width="7"
+      filter="url(#blueGlow)"/>
+
   </g>
 
-  <!-- Prancing Horse / AJ Monogram Silhouette -->
-  <!-- Stylized Stallion Silhouette & AJ Typography -->
-  <g fill="#111111">
-    <!-- Horse head and mane -->
-    <path d="M 52 26 C 54 24 57 23 59 25 C 61 27 60 30 57 32 C 55 33 53 31 52 30 C 51 28 50 27 52 26 Z" />
-    <path d="M 56 26 C 53 28 51 32 49 37 C 47 42 46 45 44 48 C 42 46 42 43 45 38 C 47 34 51 28 56 26 Z" />
-    <!-- Horse rearing body & front hooves -->
-    <path d="M 55 33 C 58 35 62 38 66 36 C 68 35 70 33 68 31 C 66 32 63 33 60 31 C 57 30 55 32 55 33 Z" />
-    <path d="M 53 38 C 58 41 64 45 68 46 C 70 46 72 44 71 42 C 68 42 64 39 60 37 C 56 36 53 37 53 38 Z" />
-    <!-- Torso and arched back -->
-    <path d="M 48 41 C 51 43 54 48 55 54 C 55 60 53 66 49 71 C 47 67 47 60 48 53 C 48 47 47 43 48 41 Z" />
-    <!-- Hind legs and tail -->
-    <path d="M 49 68 C 52 72 55 78 54 84 C 53 87 51 89 49 89 C 48 89 48 86 50 82 C 51 77 49 72 47 70 Z" />
-    <path d="M 47 69 C 43 74 38 81 38 87 C 38 89 40 89 41 87 C 43 83 45 78 48 72 Z" />
-    <!-- Flowing Tail -->
-    <path d="M 46 56 C 41 59 36 65 35 73 C 34 77 36 78 37 75 C 39 70 43 64 47 60 Z" />
+
+  <!-- Bright orbital crossing -->
+  <path
+    d="M55 278
+       C135 82 374 58 461 184
+       C494 233 455 302 361 348"
+    fill="none"
+    stroke="url(#magenta)"
+    stroke-width="3"
+    filter="url(#blueGlow)"/>
+
+
+  <!-- ENERGY PARTICLES -->
+  <g filter="url(#blueGlow)">
+
+    <circle cx="92" cy="187" r="7" fill="#00e5ff"/>
+    <circle cx="424" cy="152" r="9" fill="#a83cff"/>
+    <circle cx="445" cy="284" r="6" fill="#00e5ff"/>
+    <circle cx="382" cy="395" r="7" fill="#7d42ff"/>
+    <circle cx="111" cy="370" r="5" fill="#ff3eea"/>
+    <circle cx="155" cy="119" r="4" fill="#00e5ff"/>
+
   </g>
 
-  <!-- AJ Scuderia Letters at the bottom of shield -->
-  <g fill="#111111" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="12" letter-spacing="3" text-anchor="middle">
-    <text x="52" y="99">AJ</text>
-  </g>
 
-  <!-- Subtle Shield Highlight Gloss -->
-  <path d="M 18 19 L 45 19 C 30 45 22 65 20 70 C 18 64 18 55 18 19 Z" 
-        fill="#FFFFFF" 
-        opacity="0.25" />
+  <!-- THE V SHADOW -->
+  <path
+    d="M115 125
+       L196 125
+       L256 278
+       L316 125
+       L397 125
+       L291 388
+       L221 388
+       Z"
+    fill="#000000"
+    opacity=".55"
+    transform="translate(0 10)"
+    filter="url(#shadow)"/>
+
+
+  <!-- LEFT HALF OF V -->
+  <path
+    d="M115 125
+       L196 125
+       L256 278
+       L256 370
+       L221 388
+       Z"
+    fill="url(#vLeft)"/>
+
+
+  <!-- RIGHT HALF OF V -->
+  <path
+    d="M316 125
+       L397 125
+       L291 388
+       L256 370
+       L256 278
+       Z"
+    fill="url(#vRight)"/>
+
+
+  <!-- V CONNECTING CENTER -->
+  <path
+    d="M196 125
+       L256 278
+       L316 125
+       L276 370
+       L256 388
+       L236 370
+       Z"
+    fill="url(#vMain)"
+    opacity=".35"/>
+
+
+  <!-- Metallic V outline -->
+  <path
+    d="M115 125
+       L196 125
+       L256 278
+       L316 125
+       L397 125
+       L291 388
+       L221 388
+       Z"
+    fill="none"
+    stroke="#d8f8ff"
+    stroke-width="5"
+    stroke-linejoin="round"
+    opacity=".9"/>
+
+
+  <!-- Cyan lower V glow -->
+  <path
+    d="M115 125
+       L221 388
+       L291 388
+       L397 125"
+    fill="none"
+    stroke="url(#cyan)"
+    stroke-width="5"
+    stroke-linejoin="round"
+    filter="url(#blueGlow)"/>
+
+
+  <!-- Pink right edge -->
+  <path
+    d="M316 125
+       L291 388"
+    fill="none"
+    stroke="#ff3fe5"
+    stroke-width="4"
+    filter="url(#blueGlow)"/>
+
+
+  <!-- Metallic highlight -->
+  <path
+    d="M125 133
+       L188 133
+       L244 278"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="4"
+    stroke-linecap="round"
+    opacity=".65"/>
+
+
+  <!-- Center energy -->
+  <circle
+    cx="256"
+    cy="280"
+    r="18"
+    fill="#6838ff"
+    opacity=".25"
+    filter="url(#strongGlow)"/>
+
 </svg>

@@ -39,7 +39,7 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
       setScrolled(window.scrollY > 20);
 
       const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -56,19 +56,31 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    
     const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      setActiveSection(id);
-      setMobileMenuOpen(false);
+    if (!element) {
+      console.warn(`Navigation: Section with id "${id}" not found`);
+      return;
     }
+    
+    // Calculate the scroll position accounting for fixed navbar height
+    const navHeight = 80;
+    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const targetScrollPosition = elementPosition - navHeight;
+    
+    // Perform smooth scroll
+    window.scrollTo({
+      top: targetScrollPosition,
+      behavior: 'smooth'
+    });
+    
+    // Update active section immediately
+    setActiveSection(id);
+    
+    // Close mobile menu if open
+    setMobileMenuOpen(false);
+    
+    console.log(`Navigation: Scrolled to section "${id}"`);
   };
 
   return (

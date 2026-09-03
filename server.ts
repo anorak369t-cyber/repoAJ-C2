@@ -265,7 +265,7 @@ app.get("/api/github/:username", async (req, res) => {
     if (!userRes.ok) {
       if (userRes.status === 404) {
         if (isgrok) {
-          res.json(fallbackJoelData);
+          res.json(fallbackgrokData);
           return;
         }
         res.status(404).json({ error: "GitHub user not found." });
@@ -360,11 +360,11 @@ app.get("/api/github/:username", async (req, res) => {
       followers: userData.followers,
       following: userData.following,
       createdAt: userData.created_at,
-      languages: languagesList.length > 0 ? languagesList : fallbackJoelData.languages,
+      languages: languagesList.length > 0 ? languagesList : fallbackgrokData.languages,
       stats: {
-        totalStars: totalStars || (isJoel ? 42 : 0),
-        totalCommits: isJoel ? 842 : (userData.public_repos * 12),
-        totalPRs: isJoel ? 24 : Math.round(userData.public_repos * 1.5),
+        totalStars: totalStars || (isgrok ? 42 : 0),
+        totalCommits: isgrok ? 842 : (userData.public_repos * 12),
+        totalPRs: isgrok ? 24 : Math.round(userData.public_repos * 1.5),
         contributions: contributions
       },
       calendar,
@@ -374,8 +374,8 @@ app.get("/api/github/:username", async (req, res) => {
     res.json(finalData);
   } catch (error) {
     console.warn(`GitHub Proxy error for '${username}', returning fallback representation:`, error);
-    if (isJoel) {
-      res.json(fallbackJoelData);
+    if (isgrok) {
+      res.json(fallbackgrokData);
     } else {
       // General customized fallback for another user
       const userCalendarData = getCalendarAndStreaks(username);

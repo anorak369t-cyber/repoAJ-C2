@@ -177,7 +177,7 @@ export default function GitHubTracker() {
               onClick={() => { setUsername('joel-atamba'); setSearchInput(''); }}
               className="px-4 py-2 rounded-xl border border-white/5 bg-white/2 text-xs font-bold text-zinc-300 hover:text-white transition-colors cursor-pointer"
             >
-              Reset to Joel Atamba
+              Reset to Grok369-cyber
             </button>
           </div>
         ) : stats ? (

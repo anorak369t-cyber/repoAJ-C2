@@ -39,7 +39,7 @@ app.post("/api/contact", (req, res) => {
   // Return success response after saving/logging
   res.json({ 
     success: true, 
-    message: "Thank you for reaching out, Atamba Joel will get back to you shortly!" 
+    message: "Thank you for reaching out, Grok369-cyber will get back to you shortly!" 
   });
 });
 
@@ -56,20 +56,20 @@ app.post("/api/assistant", async (req, res) => {
     if (!process.env.GEMINI_API_KEY) {
       // Graceful local mode if API key is not configured yet
       res.json({ 
-        text: `Hi! I'm Atamba Joel's AI Assistant. (API Key is currently not set up, but I can tell you that Atamba Joel is an amazing developer from Uganda, President of the STAHIZA ICT Club, and is ready for international opportunities!)`
+        text: `Hi! I'm Grok's AI Assistant. (API Key is currently not set up, but I can tell you that Grok is an amazing developer from Uganda, President of the Vortex labs, and is ready for international opportunities!)`
       });
       return;
     }
 
     // Prepare content stream or generate content with system instruction
-    const systemInstruction = `You are the AI Digital Twin of Atamba Joel, an inspiring and highly skilled A-Level student from Uganda, passionate about Software Engineering and Artificial Intelligence. You are the President of the STAHIZA ICT Club (Standard High School Zzana). You speak directly with visitors on Atamba Joel's premium portfolio website.
+    const systemInstruction = `You are the AI Digital Twin of Grok, an inspiring and highly skilled A-Level student from Uganda, passionate about Software Engineering and Artificial Intelligence. You are the President of the Vortex-labs cooperation. You speak directly with visitors on Grok's premium portfolio website.
 
-Key facts about Atamba Joel:
+Key facts about Grok369-cyber:
 - Role: Full-Stack Developer, student, leader, AI Enthusiast.
 - Education: A-Level student in Uganda.
-- Key Position: President of STAHIZA ICT Club, where he leads student developers, built the official club website/community hub, and organizes coding bootcamps.
+- Key Position: President of Vortex-labs, where he leads student developers, built the official innovative website/community hub solutions, and organizes coding bootcamps.
 - Selected Projects:
-  1. STAHIZA ICT Club Hub: A community platform for student innovation and collaboration at Standard High School Zzana. Designed to let students share coding resources and hardware/software projects.
+  1. Vortex-labs: A community platform for developer and student innovation and collaboration in Uganda. Designed to let developers and students share coding resources and hardware/software projects.
   2. PMart: A modern full-stack ecommerce platform featuring state-of-the-art catalog search, cart management, payments, and an analytics dashboard.
   3. AI Study Assistant: An AI revision companion helping Ugandan students prepare for UNEB examinations using customized syllabi, flashcards, summaries, and quizzes.
 - Certifications: Harvard CS50, freeCodeCamp Responsive Web Design, Google AI Essentials, Code with Mosh.
@@ -77,9 +77,9 @@ Key facts about Atamba Joel:
 
 Tone Guidelines:
 - Keep your tone professional, enthusiastic, humble, friendly, and authentic.
-- Speak in the first person ("I", "my") representing Atamba Joel's digital twin.
+- Speak in the first person ("I", "my") representing Grok's digital twin.
 - Keep responses concise, structured, beautifully formatted, and easy to read.
-- Emphasize his leadership, passion for community building, and absolute dedication to high-quality code.
+- Emphasize his leadership, passion for community building, and absolute dedication to high-quality code creativity and innovation.
 - If they ask about his availability, state that he is looking for university sponsorships, international freelancing, and collaborative software engineering projects.
 - Strictly avoid flowery corporate buzzwords or sales pitches; remain a dedicated student developer.`;
 
@@ -228,14 +228,14 @@ app.get("/api/github/:username", async (req, res) => {
   const lowercaseUsername = username.toLowerCase();
   
   // High-fidelity fallback for Atamba Joel specifically
-  const isJoel = lowercaseUsername === "joel-atamba" || lowercaseUsername === "joelatamba" || lowercaseUsername === "hasty-joel" || lowercaseUsername === "hasty0joel" || lowercaseUsername === "atamba-joel" || lowercaseUsername === "atambajoel";
+  const isgrok = lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber";
   
-  const joelCalendarData = getCalendarAndStreaks(username);
-  const fallbackJoelData = {
+  const grokCalendarData = getCalendarAndStreaks(username);
+  const fallbackgrokData = {
     username: username,
-    name: "Atamba Joel",
+    name: "Grok369-cyber",
     avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
-    bio: "Full-Stack Developer | President of STAHIZA ICT Club | Student passionate about AI & Web Engineering",
+    bio: "Full-Stack Developer | President of Vortex-labs| Student passionate about AI & Web Engineering",
     publicRepos: 18,
     followers: 47,
     following: 28,
@@ -250,10 +250,10 @@ app.get("/api/github/:username", async (req, res) => {
       totalStars: 54,
       totalCommits: 842,
       totalPRs: 24,
-      contributions: joelCalendarData.contributions
+      contributions: grokCalendarData.contributions
     },
-    calendar: joelCalendarData.calendar,
-    streaks: joelCalendarData.streaks
+    calendar: grokCalendarData.calendar,
+    streaks: grokCalendarData.streaks
   };
 
   try {
@@ -264,7 +264,7 @@ app.get("/api/github/:username", async (req, res) => {
 
     if (!userRes.ok) {
       if (userRes.status === 404) {
-        if (isJoel) {
+        if (isgrok) {
           res.json(fallbackJoelData);
           return;
         }
@@ -383,7 +383,7 @@ app.get("/api/github/:username", async (req, res) => {
         username: username,
         name: username.charAt(0).toUpperCase() + username.slice(1),
         avatarUrl: `https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80`,
-        bio: `Software Engineer specializing in web technologies.`,
+        bio: `Software Engineer specializing in web app technologies.`,
         publicRepos: 12,
         followers: 15,
         following: 10,

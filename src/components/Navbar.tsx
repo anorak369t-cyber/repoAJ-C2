@@ -85,27 +85,99 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
             onClick={(e) => handleNavClick(e, 'home')}
             className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="relative w-8 h-10 flex items-center justify-center filter drop-shadow-[0_0_8px_rgba(255,204,0,0.35)] group-hover:scale-105 transition-transform duration-300">
-              <svg viewBox="0 0 100 120" className="w-full h-full">
-                {/* Ferrari Shield Outline */}
-                <path d="M 12 10 L 88 10 L 88 62 C 88 88 50 114 50 114 C 50 114 12 88 12 62 Z" 
-                      fill="#FFCC00" 
-                      stroke="#111111" 
-                      strokeWidth="3.5" 
-                      strokeLinejoin="round" />
-                {/* Italian Tricolor */}
-                <rect x="14" y="10.5" width="24" height="8" fill="#008C45" />
-                <rect x="38" y="10.5" width="24" height="8" fill="#FFFFFF" />
-                <rect x="62" y="10.5" width="24" height="8" fill="#CD212A" />
-                <line x1="14" y1="18.5" x2="86" y2="18.5" stroke="#111111" strokeWidth="1.5" />
-                {/* Stallion Silhouette */}
-                <path d="M 52 26 C 54 24 57 23 59 25 C 61 27 60 30 57 32 C 55 33 53 31 52 30 C 51 28 50 27 52 26 Z M 56 26 C 53 28 51 32 49 37 C 47 42 46 45 44 48 C 42 46 42 43 45 38 C 47 34 51 28 56 26 Z M 55 33 C 58 35 62 38 66 36 C 68 35 70 33 68 31 C 66 32 63 33 60 31 C 57 30 55 32 55 33 Z M 53 38 C 58 41 64 45 68 46 C 70 46 72 44 71 42 C 68 42 64 39 60 37 C 56 36 53 37 53 38 Z M 48 41 C 51 43 54 48 55 54 C 55 60 53 66 49 71 C 47 67 47 60 48 53 C 48 47 47 43 48 41 Z M 49 68 C 52 72 55 78 54 84 C 53 87 51 89 49 89 C 48 89 48 86 50 82 C 51 77 49 72 47 70 Z M 47 69 C 43 74 38 81 38 87 C 38 89 40 89 41 87 C 43 83 45 78 48 72 Z M 46 56 C 41 59 36 65 35 73 C 34 77 36 78 37 75 C 39 70 43 64 47 60 Z" fill="#111111" />
-                {/* VL text */}
-                <text x="52" y="99" fill="#111111" fontFamily="sans-serif" fontWeight="900" fontSize="12" letterSpacing="3" textAnchor="middle">VL</text>
+            <div className="relative w-8 h-10 flex items-center justify-center filter drop-shadow-[0_0_12px_rgba(0,245,255,0.4)] group-hover:scale-105 transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-full h-full">
+                <defs>
+                  <radialGradient id="bg" cx="50%" cy="48%" r="75%">
+                    <stop offset="0%" stopColor="#10183b"/>
+                    <stop offset="55%" stopColor="#060a1b"/>
+                    <stop offset="100%" stopColor="#010207"/>
+                  </radialGradient>
+                  <linearGradient id="vMain" x1="120" y1="100" x2="390" y2="400">
+                    <stop offset="0%" stopColor="#ffffff"/>
+                    <stop offset="18%" stopColor="#9defff"/>
+                    <stop offset="45%" stopColor="#2578ff"/>
+                    <stop offset="72%" stopColor="#763cff"/>
+                    <stop offset="100%" stopColor="#ff3ed8"/>
+                  </linearGradient>
+                  <linearGradient id="vLeft" x1="130" y1="120" x2="260" y2="380">
+                    <stop offset="0%" stopColor="#eaffff"/>
+                    <stop offset="25%" stopColor="#49dfff"/>
+                    <stop offset="70%" stopColor="#1450ce"/>
+                    <stop offset="100%" stopColor="#42208f"/>
+                  </linearGradient>
+                  <linearGradient id="vRight" x1="390" y1="110" x2="250" y2="390">
+                    <stop offset="0%" stopColor="#ffffff"/>
+                    <stop offset="25%" stopColor="#a8c9ff"/>
+                    <stop offset="65%" stopColor="#703cff"/>
+                    <stop offset="100%" stopColor="#e52eff"/>
+                  </linearGradient>
+                  <linearGradient id="cyan" x1="80" y1="100" x2="430" y2="420">
+                    <stop stopColor="#00f0ff"/>
+                    <stop offset="45%" stopColor="#147cff"/>
+                    <stop offset="100%" stopColor="#6b2cff"/>
+                  </linearGradient>
+                  <linearGradient id="magenta" x1="400" y1="100" x2="120" y2="420">
+                    <stop stopColor="#ff35e8"/>
+                    <stop offset="50%" stopColor="#842cff"/>
+                    <stop offset="100%" stopColor="#00e5ff"/>
+                  </linearGradient>
+                  <filter id="blueGlow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feGaussianBlur stdDeviation="6" result="blur"/>
+                    <feMerge>
+                      <feMergeNode in="blur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+                    <feGaussianBlur stdDeviation="12" result="blur"/>
+                    <feMerge>
+                      <feMergeNode in="blur"/>
+                      <feMergeNode in="blur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="0" dy="12" stdDeviation="12" floodColor="#000000" floodOpacity="0.85"/>
+                  </filter>
+                </defs>
+                <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+                <circle cx="256" cy="256" r="220" fill="none" stroke="#0c3b9b" strokeWidth="1" opacity=".55"/>
+                <circle cx="256" cy="256" r="202" fill="none" stroke="#176cff" strokeWidth="1.5" opacity=".5"/>
+                <circle cx="256" cy="256" r="184" fill="none" stroke="#246eff" strokeWidth="2" strokeDasharray="4 11" opacity=".35"/>
+                <path d="M54 270 C75 125 235 47 374 105 C465 143 480 252 405 332" fill="none" stroke="url(#cyan)" strokeWidth="3" strokeLinecap="round" filter="url(#blueGlow)"/>
+                <path d="M70 340 C125 438 337 465 435 339 C480 280 458 191 394 144" fill="none" stroke="url(#magenta)" strokeWidth="3" strokeLinecap="round" filter="url(#blueGlow)"/>
+                <g fill="none" strokeLinecap="round">
+                  <path d="M100 285 C86 180 165 96 270 98 C385 101 441 200 405 301 C373 389 252 434 151 379" stroke="url(#cyan)" strokeWidth="20" opacity=".20" filter="url(#strongGlow)"/>
+                  <path d="M100 285 C86 180 165 96 270 98 C385 101 441 200 405 301 C373 389 252 434 151 379" stroke="url(#cyan)" strokeWidth="9" filter="url(#blueGlow)"/>
+                  <path d="M130 340 C195 425 353 402 402 301 C429 245 397 177 342 148" stroke="url(#magenta)" strokeWidth="17" opacity=".20" filter="url(#strongGlow)"/>
+                  <path d="M130 340 C195 425 353 402 402 301 C429 245 397 177 342 148" stroke="url(#magenta)" strokeWidth="8" filter="url(#blueGlow)"/>
+                  <path d="M165 312 C130 244 179 172 250 165 C322 158 374 217 353 282 C332 345 248 368 197 320 C164 289 177 236 220 218 C264 199 306 226 302 262" stroke="url(#cyan)" strokeWidth="15" opacity=".22" filter="url(#strongGlow)"/>
+                  <path d="M165 312 C130 244 179 172 250 165 C322 158 374 217 353 282 C332 345 248 368 197 320 C164 289 177 236 220 218 C264 199 306 226 302 262" stroke="url(#cyan)" strokeWidth="7" filter="url(#blueGlow)"/>
+                  <path d="M205 300 C177 262 197 217 239 204 C280 191 315 220 310 255 C306 286 267 304 239 284 C221 271 224 245 244 237" stroke="url(#magenta)" strokeWidth="7" filter="url(#blueGlow)"/>
+                </g>
+                <path d="M55 278 C135 82 374 58 461 184 C494 233 455 302 361 348" fill="none" stroke="url(#magenta)" strokeWidth="3" filter="url(#blueGlow)"/>
+                <g filter="url(#blueGlow)">
+                  <circle cx="92" cy="187" r="7" fill="#00e5ff"/>
+                  <circle cx="424" cy="152" r="9" fill="#a83cff"/>
+                  <circle cx="445" cy="284" r="6" fill="#00e5ff"/>
+                  <circle cx="382" cy="395" r="7" fill="#7d42ff"/>
+                  <circle cx="111" cy="370" r="5" fill="#ff3eea"/>
+                  <circle cx="155" cy="119" r="4" fill="#00e5ff"/>
+                </g>
+                <path d="M115 125 L196 125 L256 278 L316 125 L397 125 L291 388 L221 388 Z" fill="#000000" opacity=".55" transform="translate(0 10)" filter="url(#shadow)"/>
+                <path d="M115 125 L196 125 L256 278 L256 370 L221 388 Z" fill="url(#vLeft)"/>
+                <path d="M316 125 L397 125 L291 388 L256 370 L256 278 Z" fill="url(#vRight)"/>
+                <path d="M196 125 L256 278 L316 125 L276 370 L256 388 L236 370 Z" fill="url(#vMain)" opacity=".35"/>
+                <path d="M115 125 L196 125 L256 278 L316 125 L397 125 L291 388 L221 388 Z" fill="none" stroke="#d8f8ff" strokeWidth="5" strokeLinejoin="round" opacity=".9"/>
+                <path d="M115 125 L221 388 L291 388 L397 125" fill="none" stroke="url(#cyan)" strokeWidth="5" strokeLinejoin="round" filter="url(#blueGlow)"/>
+                <path d="M316 125 L291 388" fill="none" stroke="#ff3fe5" strokeWidth="4" filter="url(#blueGlow)"/>
+                <path d="M125 133 L188 133 L244 278" fill="none" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" opacity=".65"/>
+                <circle cx="256" cy="280" r="18" fill="#6838ff" opacity=".25" filter="url(#strongGlow)"/>
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="text-white font-bold font-sans tracking-wider text-sm group-hover:text-amber-400 transition-colors leading-none">
+              <span className="text-white font-bold font-sans tracking-wider text-sm group-hover:text-cyan-400 transition-colors leading-none">
                 Grok 369
               </span>
               <span className="text-[9px] font-mono text-cyan-400/80 tracking-widest uppercase mt-0.5">
@@ -206,7 +278,7 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, 'contact')}
-              className="relative overflow-hidden group px-4 py-1.5 rounded-lg border border-red-500/30 bg-red-950/15 hover:bg-red-900/25 text-xs font-semibold text-red-300 flex items-center gap-1.5 transition-all duration-300 cursor-pointer"
+              className="relative overflow-hidden group px-4 py-1.5 rounded-lg border border-red-500/30 bg-red-950/15 hover:bg-red-900/25 text-xs font-semibold text-red-300 flex items-center gap-1.5"
             >
               <span className="relative z-10">Hire Grok</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

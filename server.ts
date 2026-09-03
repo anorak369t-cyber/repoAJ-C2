@@ -114,7 +114,7 @@ Tone Guidelines:
     res.json({ text: response.text });
   } catch (error: any) {
     console.error("Gemini assistant error:", error);
-    res.status(500).json({ error: "Failed to query Atamba Joel's AI Twin: " + error.message });
+    res.status(500).json({ error: "Failed to query Grok's AI Twin: " + error.message });
   }
 });
 
@@ -228,7 +228,7 @@ app.get("/api/github/:username", async (req, res) => {
   const lowercaseUsername = username.toLowerCase();
   
   // High-fidelity fallback for Atamba Joel specifically
-  const isgrok = lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber";
+  const isgrok = lowercaseUsername === "grok369-cyber" || lowercaseUsername === "grok369-nexus" || lowercaseUsername === "anorak369t-cyber" || lowercaseUsername === "grok369" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber";
   
   const grokCalendarData = getCalendarAndStreaks(username);
   const fallbackgrokData = {

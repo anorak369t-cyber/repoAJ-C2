@@ -161,7 +161,7 @@ export default function AIAssistant() {
                   <BrainCircuit className="w-4 h-4 text-cyan-400 animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold text-white tracking-wide font-sans">Atamba's AI Twin</h3>
+                  <h3 className="text-xs font-bold text-white tracking-wide font-sans">Grok's AI Twin</h3>
                   <div className="flex items-center gap-1 mt-0.5 text-[9px] font-mono text-zinc-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     <span>PORTFOLIO ASSISTANT ONLINE</span>

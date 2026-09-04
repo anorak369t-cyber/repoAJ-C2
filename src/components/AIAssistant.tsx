@@ -16,7 +16,7 @@ export default function AIAssistant() {
     {
       id: 'init',
       role: 'model',
-      text: "Hi there! I am Grok's AI Digital partner, powered by Gemini 3.5 Flash. Ask me anything about Grok's background, purpose at Vortex labs, certifications, or custom full-stack projects!",
+      text: "Hi there! I am Grok's AI portfolio assistant. Ask me about Vortex Labs, Grok's projects, skills, or certifications.",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -164,7 +164,7 @@ export default function AIAssistant() {
                   <h3 className="text-xs font-bold text-white tracking-wide font-sans">Atamba's AI Twin</h3>
                   <div className="flex items-center gap-1 mt-0.5 text-[9px] font-mono text-zinc-500">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>GEMINI 3.5 FLASH ONLINE (coming soon)</span>
+                    <span>PORTFOLIO ASSISTANT ONLINE</span>
                   </div>
                 </div>
               </div>

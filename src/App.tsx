@@ -26,7 +26,7 @@ export default function App() {
         return saved;
       }
     }
-    return 'gold';
+    return 'mixed';
   });
 
   useEffect(() => {

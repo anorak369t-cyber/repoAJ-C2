@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Download, Send, X, FileText, Lock } from 'lucide-react';
 import Magnetic from './Magnetic';
@@ -7,24 +7,40 @@ import { downloadProfessionalCV } from '../utils/pdfGenerator';
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  // Mouse-following glow coordinate tracking
+  // Mouse-following glow coordinate tracking, throttled with requestAnimationFrame
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      setMousePosition({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
+
+      if (animationFrameRef.current !== null) return;
+
+      animationFrameRef.current = requestAnimationFrame(() => {
+        const rect = containerRef.current?.getBoundingClientRect();
+        if (!rect) return;
+
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        });
+
+        animationFrameRef.current = null;
       });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
   }, []);
 
   const handleScrollTo = (id: string) => {
@@ -115,7 +131,7 @@ export default function Hero() {
     }
   };
 
-  const words = HERO_DATA.headline.split(" ");
+  const words = useMemo(() => HERO_DATA.headline.split(' '), []);
 
   return (
     <section 

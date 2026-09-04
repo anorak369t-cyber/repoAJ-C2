@@ -33,60 +33,72 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [themeMenuOpen, setThemeMenuOpen] = useState(false);
 
-  // Active section scroll spy
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((section): section is HTMLElement => Boolean(section));
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleSection) {
+          const id = visibleSection.target.id;
+          setActiveSection(id);
+          if (window.location.hash !== `#${id}`) {
+            window.history.replaceState(null, '', `#${id}`);
+          }
         }
+      },
+      {
+        root: null,
+        threshold: [0.2, 0.45, 0.7],
+        rootMargin: '-20% 0px -35% 0px'
       }
-    };
+    );
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    
+
     const element = document.getElementById(id);
     if (!element) {
       console.warn(`Navigation: Section with id "${id}" not found`);
       return;
     }
-    
-    // Calculate the scroll position accounting for fixed navbar height
-    const navHeight = 80;
+
+    const navHeight = 96;
     const elementPosition = element.getBoundingClientRect().top + window.scrollY;
     const targetScrollPosition = elementPosition - navHeight;
-    
-    // Perform smooth scroll
+
+    window.history.pushState(null, '', `#${id}`);
     window.scrollTo({
       top: targetScrollPosition,
-      behavior: 'smooth'
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
     });
-    
-    // Update active section immediately
+
     setActiveSection(id);
-    
-    // Close mobile menu if open
     setMobileMenuOpen(false);
-    
-    console.log(`Navigation: Scrolled to section "${id}"`);
   };
 
   return (
     <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
       scrolled 
-        ? 'py-3 bg-[#070b19]/80 backdrop-blur-md border-b border-white/5' 
+        ? 'py-3 bg-[#070b19]/70 backdrop-blur-md border-b border-white/5 shadow-[0_12px_30px_rgba(2,6,23,0.35)]' 
         : 'py-5 bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -301,8 +313,9 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
           <div className="flex md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-white/5 transition-all cursor-pointer"
+              className="p-1.5 text-zinc-400 hover:text-white rounded-lg hover:bg-white/5 transition-all cursor-pointer active:scale-95"
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -314,11 +327,11 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-white/5 bg-[#070b19]/95 backdrop-blur-xl"
+            initial={{ opacity: 0, height: 0, y: -12 }}
+            animate={{ opacity: 1, height: 'auto', y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -12 }}
+            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden border-b border-white/5 bg-[#070b19]/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(2,6,23,0.35)]"
           >
             <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">
               {navItems.map((item) => {
@@ -327,7 +340,10 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
                   <a
                     key={item.id}
                     href={`#${item.id}`}
-                    onClick={(e) => handleNavClick(e, item.id)}
+                    onClick={(e) => {
+                      handleNavClick(e, item.id);
+                      setMobileMenuOpen(false);
+                    }}
                     className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
                       isActive 
                         ? 'text-cyan-400 bg-cyan-500/10 border-l-2 border-cyan-500' 
@@ -351,7 +367,10 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
                     return (
                       <button
                         key={t.id}
-                        onClick={() => onThemeChange(t.id)}
+                        onClick={() => {
+                          onThemeChange(t.id);
+                          setMobileMenuOpen(false);
+                        }}
                         className={`flex flex-col items-center gap-1 py-2 px-1 rounded-lg border transition-all cursor-pointer ${
                           isActive 
                             ? 'bg-white/5 border-cyan-500/50 text-white' 
@@ -369,7 +388,10 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
               <div className="pt-4 px-3">
                 <a
                   href="#contact"
-                  onClick={(e) => handleNavClick(e, 'contact')}
+                  onClick={(e) => {
+                    handleNavClick(e, 'contact');
+                    setMobileMenuOpen(false);
+                  }}
                   className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-sky-500 via-cyan-500 to-red-500 text-xs font-semibold text-white transition-all cursor-pointer"
                 >
                   Hire Grok369

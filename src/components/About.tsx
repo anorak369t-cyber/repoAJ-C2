@@ -104,17 +104,17 @@ export default function About() {
                 </div>
 
                 {/* Styled Center Avatar visual */}
-                <div className="w-36 h-36 rounded-full bg-gradient-to-tr from-sky-500 via-cyan-500 to-red-500 mx-auto flex items-center justify-center p-1.5 relative shadow-[0_0_50px_rgba(6,182,212,0.25)] group-hover:scale-105 transition-transform duration-500">
+                <div className="w-36 h-36 rounded-full bg-gradient-to-tr from-sky-500 via-cyan-500 to-red-500 mx-auto flex items-center justify-center p-1.5 relative shadow-[0_0_50px_rgba(6,182,212,0.25)] group-hover:scale-105 transition-transform duration-500 will-change-transform">
                   {/* Subtle inner dark ring */}
                   <div className="w-full h-full rounded-full bg-[#0f172a] flex items-center justify-center overflow-hidden relative">
                     <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(6,182,212,0.1)_0%,transparent_100%)]" />
-                    
+
                     {/* Stylized vector representation of face outline / initials */}
                     <div className="text-4xl font-black font-sans tracking-tighter bg-gradient-to-r from-sky-400 via-cyan-200 to-red-400 bg-clip-text text-transparent animate-pulse select-none">
                       VL
                     </div>
                   </div>
-                  
+
                   {/* Outer active orbit rings */}
                   <div className="absolute -inset-1 border border-dashed border-cyan-400/20 rounded-full animate-[spin_40s_linear_infinite]" />
                 </div>

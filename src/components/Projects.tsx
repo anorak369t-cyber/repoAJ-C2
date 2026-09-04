@@ -68,6 +68,8 @@ export default function Projects() {
                   <img
                     src={project.image}
                     alt={project.name}
+                    loading="lazy"
+                    decoding="async"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
                   />

@@ -326,14 +326,23 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0, y: -12 }}
-            animate={{ opacity: 1, height: 'auto', y: 0 }}
-            exit={{ opacity: 0, height: 0, y: -12 }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden border-b border-white/5 bg-[#070b19]/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(2,6,23,0.35)]"
-          >
-            <div className="px-4 pt-2 pb-6 space-y-1 sm:px-6">
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.18 }}
+              className="md:hidden fixed inset-0 z-30 bg-[#020817]/40 backdrop-blur-[1px]"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, height: 0, y: -12 }}
+              animate={{ opacity: 1, height: 'auto', y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -12 }}
+              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden relative z-40 border-b border-white/5 bg-[#070b19]/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(2,6,23,0.35)]"
+            >
+              <div className="px-4 pt-3 pb-6 space-y-2 sm:px-6">
               {navItems.map((item) => {
                 const isActive = activeSection === item.id;
                 return (
@@ -392,14 +401,15 @@ export default function Navbar({ theme, onThemeChange }: NavbarProps) {
                     handleNavClick(e, 'contact');
                     setMobileMenuOpen(false);
                   }}
-                  className="w-full flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-gradient-to-r from-sky-500 via-cyan-500 to-red-500 text-xs font-semibold text-white transition-all cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-sky-500 via-cyan-500 to-red-500 text-xs font-semibold text-white shadow-[0_14px_28px_rgba(34,211,238,0.18)] border border-white/10 transition-all cursor-pointer active:scale-[0.98]"
                 >
                   Hire Grok369
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

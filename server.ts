@@ -224,7 +224,7 @@ app.get("/api/github/:username", async (req, res) => {
   const { username } = req.params;
   const lowercaseUsername = username.toLowerCase();
   
-  // High-fidelity fallback for Atamba Joel specifically
+  // High-fidelity fallback for Grok369-cybers specifically
   const isgrok = lowercaseUsername === "grok369-cyber" || lowercaseUsername === "grok369-nexus" || lowercaseUsername === "anorak369t-cyber" || lowercaseUsername === "grok369" || lowercaseUsername === "Grok369-cyber" || lowercaseUsername === "Grok369-cyber";
   
   const grokCalendarData = getCalendarAndStreaks(username);
